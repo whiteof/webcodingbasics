@@ -1,0 +1,237 @@
+.banner {
+    overflow: hidden;
+    background: #ccc;
+}
+.banner .banner-bg {
+    display: block;
+    position: relative;
+    z-index: -1;
+}
+#banner-bg {
+    display: none;
+}
+.banner-bg-full-width {
+    width: 100%;
+}
+.banner-bg-full-height {
+    height: 100%;
+}
+.banner .bar {
+    position: relative;
+}
+.banner .banner-hr {
+    text-align: center;
+    height: 1px;
+}
+.banner .banner-hr img {
+    display: block;
+    margin: auto;
+}
+.banner .top-bar {
+    /*background: url('../images/black_50.png');*/
+}
+.banner .middle-bar {
+    height: 300px;
+}
+.banner .bottom-bar {
+    background: url('../images/black_65.png');
+    padding: 0px;
+    text-align: center;
+}
+.banner .bottom-bar .container {
+    max-width: 765px;
+    padding: 0px;
+}
+.banner .bottom-bar .container .start-button-container {
+    display: table;
+    width: 100%;
+}
+.banner .bottom-bar .container .start-button-container .start-button {
+    display: table-cell;
+    width: 50%;
+    overflow: hidden;
+    background: #fff;
+    opacity: 0.85;
+}
+.banner .bottom-bar .container .start-button-container .start-button:hover {
+    opacity: 1.0;
+}
+.banner .bottom-bar .start-button a {
+    display: block;
+    padding: 20px 10px;    
+    color: #860000;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 20px;
+    text-transform: uppercase;
+    text-align: center;
+}
+@media screen and (max-width: 645px) {
+    .banner .bottom-bar .start-button a {
+        font-size: 14px;
+    }
+    .banner .bottom-bar .start-button a strong {
+        display: none;
+    }
+}
+.banner .bottom-bar .container .start-button-container .start-button-buy {
+    background: #d40000;
+}
+.banner .bottom-bar .container .start-button-container .start-button-buy a {
+    color: #fff;
+    font-weight: 400;
+}
+.banner .bottom-bar a:hover {
+    opacity: 1.0;
+    text-decoration: none;
+}
+.banner .bottom-bar .container .start-button-container .start-button-free a:hover {
+    border-bottom: 1px solid #eee;
+    padding-bottom: 19px;
+}
+.banner .bottom-bar a strong {
+    font-size: 20px;
+    font-weight: 100;
+}
+.banner h1 {
+    color: #fff;
+    font-weight: 100;
+    display: block;
+    text-align: center;
+    font-size: 42px;
+    line-height: 1em;
+    margin: 30px 0px;
+}
+.banner h2 {
+    color: #fff;
+    font-weight: 200;
+    display: block;
+    text-align: center;
+    font-size: 32px;
+    line-height: 1.2em;
+    margin: 30px 0px 15px 0px;
+    text-transform: uppercase;
+}
+
+@media screen and (max-width: 991px) {
+    .banner .middle-bar {
+        height: 250px;
+    }
+    .banner h1 {
+        font-size: 36px;
+        margin: 20px 0px;
+    }
+    .banner h2 {
+        font-size: 26px;
+    }
+    #banner-bg {
+        margin-left: -120px;
+    }
+    .inter #banner-bg {
+        margin-left: 0px;
+    }
+}
+@media screen and (max-width: 767px) {
+    .banner .middle-bar {
+        height: 200px;
+    }
+    .banner h1 {
+        font-size: 32px;
+        margin: 20px 0px;
+    }
+    .banner h2 {
+        font-size: 24px;
+    }
+    #banner-bg {
+        margin-left: -130px;
+    }      
+    .inter #banner-bg {
+        margin-left: 0px;
+    }      
+}
+@media screen and (max-width: 540px) {
+    .banner .middle-bar {
+        height: 180px;
+    }
+    .banner h1 {
+        font-size: 26px;
+        margin: 20px 0px;
+    }
+    .banner h2 {
+        font-size: 20px;
+    }
+    #banner-bg {
+        margin-left: -150px;
+    }
+    .inter #banner-bg {
+        margin-left: 0px;
+    }
+    .banner .banner-hr img {
+        width: 270px;
+        height: 1px;
+    }
+}
+
+/* Video */
+.banner .main-video {
+    min-height: 430px;
+    min-width: 765px;
+    margin: auto;
+}
+.banner .container {
+    padding: 0px;
+}
+@media screen and (max-width: 991px) {
+    .banner .main-video {
+        min-width: 700px;
+        min-height: 393px;
+    }
+}
+@media screen and (max-width: 720px) {
+    .banner .main-video {
+        min-width: 600px;
+        min-height: 337px;
+    }    
+}
+@media screen and (max-width: 620px) {
+    .banner .main-video {
+        min-width: 500px;
+        min-height: 281px;
+    }    
+}
+@media screen and (max-width: 520px) {
+    .banner .main-video {
+        min-width: 400px;
+        min-height: 225px;
+    }    
+}
+@media screen and (max-width: 420px) {
+    .banner .main-video {
+        min-width: 300px;
+        min-height: 169px;
+    }
+}
+.banner .banner-menu .banner-menu-item {
+    background: #fff;
+    border-radius: 4px;
+    border: 2px solid #fff;
+    opacity: 0.85;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.banner .banner-menu .banner-menu-item .banner-menu-item-image-container {
+    max-height: 172px;
+    overflow: hidden;
+}
+.banner .banner-menu .banner-menu-item:hover {
+    opacity: 1.0;
+}
+.banner .banner-menu .banner-menu-item a:hover {
+    text-decoration: none;
+}
+.banner .banner-menu .banner-menu-item a p {
+    padding-top: 10px;
+    text-transform: uppercase;
+    color: #777;
+    text-align: center;
+}
