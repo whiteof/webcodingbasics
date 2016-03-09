@@ -38,6 +38,8 @@ else
 // Add JavaScript Frameworks
 JHtml::_('bootstrap.framework');
 $doc->addScript($this->baseurl . '/templates/' . $this->template . '/js/banner.js');
+$doc->addScript($this->baseurl . '/templates/' . $this->template . '/js/mod_survey_stepone.js');
+$doc->addScript($this->baseurl . '/templates/' . $this->template . '/js/mod_room_buy.js');
 $doc->addScript($this->baseurl . '/templates/' . $this->template . '/js/template.js');
 
 // Add Stylesheets
@@ -199,7 +201,7 @@ else
 									</a>
 								</div>
 								<div class="start-button start-button-buy">
-									<a href="" data-toggle="modal" data-target="#modalBuy">
+									<a href="#" data-toggle="modal" data-target="#modalBuy">
 										<strong>&rarr;&nbsp;&nbsp;</strong>
 										Пройти полный курс!
 										<strong>&nbsp;&nbsp;&larr;</strong>
@@ -211,7 +213,6 @@ else
 				</div>
 			</div>
 		<?php endif ?>
-
 		<?php if($this->countModules('home-message')): ?>
 			<div class="description">
 				<div class="container">
@@ -297,12 +298,16 @@ else
 			</div>
 		<?php else: ?>
 			<div class="main-content">
-				<main id="content" role="main" class="<?php echo $span; ?>">
-					<!-- Begin Content -->
-					<jdoc:include type="message" />
-					<jdoc:include type="component" />
-					<!-- End Content -->
-				</main>
+				<div class="container">
+					<div class="bar">
+						<main id="content" role="main" class="<?php echo $span; ?>">
+							<!-- Begin Content -->
+							<jdoc:include type="message" />
+							<jdoc:include type="component" />
+							<!-- End Content -->
+						</main>
+					</div>
+				</div>
 			</div>
 		<?php endif ?>
 		
@@ -312,137 +317,9 @@ else
 			</div>
 		</footer>
 
+		<jdoc:include type="modules" name="home-survey-stepone" style="none" />
 		
-		
-		<!-- Modal - Free Lesson -->
-		<div class="modal fade modal-free" id="modalFree" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-			<div class="modal-dialog" role="document">
-				<div class="modal-content">
-					<div class="modal-header">
-						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-						<h3 class="modal-title" id="myModalLabel">
-							Правильное решение!<br />
-							Уже скоро Ты станешь веб-программистом!
-						</h3>
-					</div>
-					<div class="modal-body">
-						<p>
-							Ответь на несколько простых вопросов, укажи свой email и я вышлю тебе певый урок абсолютно бесплатно!
-						</p>
-						<form action="" method="post">
-							<div class="form-group">
-								<label for="form[name]">Имя</label>
-								<input type="text" class="form-control" name="form[name]" />
-							</div>
-							<div class="form-group">
-								<label for="form[years]">Как давно ты в США?</label>
-								<select class="form-control" name="form[years]">
-									<option value="0"></option>
-									<option value="1">1 год</option>
-									<option value="2">2 год</option>
-									<option value="3">3 год</option>
-									<option value="4">4 год</option>
-									<option value="5">5 год</option>
-									<option value="6">более 5 лет</option>
-								</select>
-							</div>
-							<div class="form-group">
-								<label for="form[job]">Кем работаешь?</label>
-								<input type="text" class="form-control" name="form[job]" />
-							</div>
-							<div class="form-group">
-								<label for="form[education]">Образование</label>
-								<div class="row">
-									<div class="col-sm-6">
-										<ul class="no-list">
-											<li><input type="radio" name="form[education]" value="1" /> евляюсь студентом сейчас</li>
-											<li><input type="radio" name="form[education]" value="2" /> бакалавр в США</li>
-											<li><input type="radio" name="form[education]" value="3" /> комьюнити колледж в США</li>
-										</ul>
-									</div>
-									<div class="col-sm-6">
-										<ul class="no-list">
-											<li><input type="radio" name="form[education]" value="4" /> прошел курсы</li>
-											<li><input type="radio" name="form[education]" value="5" /> не учусь и не учился в США</li>
-										</ul>
-									</div>
-								</div>
-							</div>
-							<div class="form-group">
-								<label for="form[english]">Уровень английского?</label>
-								<div class="row">
-									<div class="col-sm-6">
-										<ul class="no-list">
-											<li><input type="radio" name="form[education]" value="1" /> начальный</li>
-											<li><input type="radio" name="form[education]" value="2" /> средний</li>
-										</ul>
-									</div>
-									<div class="col-sm-6">
-										<ul class="no-list">
-											<li><input type="radio" name="form[education]" value="3" /> разговорный</li>
-											<li><input type="radio" name="form[education]" value="4" /> литературный</li>
-										</ul>
-									</div>
-								</div>
-							</div>
-							<div class="form-group">
-								<label for="form[why]">Почему ты хочешь научиться программировать? Опиши минимум в 10 словах.</label>
-								<textarea name="form[why]" class="form-control"></textarea>
-							</div>
-							<div class="form-group">
-								<label for="form[what]">Что бы ты первым делом сделал, если бы уже завтра ты бы нашел работу программистом на $60к в год и полным пакетом бенефитов. Опиши минимум в 10 словах.</label>
-								<textarea name="form[what]" class="form-control"></textarea>
-							</div>
-							<div class="form-group">
-								<div class="row">
-									<div class="col-sm-6">
-										<label for="form[sex]">Пол</label>
-										<ul class="no-list">
-											<li><input type="radio" name="form[sex]" value="male" /> мужской</li>
-											<li><input type="radio" name="form[sex]" value="female" /> женский</li>
-										</ul>										
-									</div>
-									<div class="col-sm-6">
-										<label for="form[age]">Возраст</label>
-										<input type="text" class="form-control" name="form[age]" />
-									</div>
-								</div>
-							</div>
-							<div class="form-group">
-								<label for="form[email]">Email</label>
-								<input type="email" class="form-control" name="form[email]" />
-							</div>							
-						
-					</div>
-					<div class="modal-footer">
-						<button type="submit" class="btn btn-danger">Получить первый урок!</button>
-					</div>
-						</form>
-				</div>
-			</div>
-		</div>
-		
-
-		<!-- Modal - Buy Course -->
-		<div class="modal fade modal-buy" id="modalBuy" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-			<div class="modal-dialog" role="document">
-				<div class="modal-content">
-					<div class="modal-header">
-						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-						<h3 class="modal-title" id="myModalLabel">
-							Правильное решение!<br />
-							Уже скоро Ты станешь веб-программистом!
-						</h3>
-					</div>
-					<div class="modal-body">
-						
-					</div>
-					<div class="modal-footer">
-						<button type="submit" class="btn btn-danger">Стать программистом!</button>
-					</div>
-				</div>
-			</div>
-		</div>				
+		<jdoc:include type="modules" name="home-room-buy" style="none" />
 		
 		
 		<!-- Modal - Question -->

@@ -201,7 +201,7 @@ abstract class JModelForm extends JModelLegacy
 		catch (Exception $e)
 		{
 			$this->setError($e->getMessage());
-
+			
 			return false;
 		}
 

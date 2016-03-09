@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form name="stepone">
+	<fieldset name="stepone">
+
+		<field
+			name="id"
+			type="hidden"
+			default="0"
+			readonly="true"
+			class="readonly"
+			label="JGLOBAL_FIELD_ID_LABEL"
+			description="JGLOBAL_FIELD_ID_DESC"
+		/>
+  
+		<field
+			name="first_name"
+			type="text"
+			description="COM_SURVEY_FORM_DESC_STEPONE_FIRST_NAME"
+			label="COM_SURVEY_FORM_LBL_STEPONE_FIRST_NAME"
+			required="true"
+			class="form-control"
+		/>
+
+		<field
+			name="last_name"
+			type="text"
+			description="COM_SURVEY_FORM_DESC_STEPONE_LAST_NAME"
+			label="COM_SURVEY_FORM_LBL_STEPONE_LAST_NAME"
+			required="true"
+			class="form-control"
+		/>
+
+		<field
+			name="years_in_usa"
+			type="list"
+			default=""
+			description="COM_SURVEY_FORM_DESC_STEPONE_YEARS_IN_USA"
+			label="COM_SURVEY_FORM_LBL_STEPONE_YEARS_IN_USA"
+			required="true"
+			class="form-control"
+		>
+			<option value=""></option>
+			<option value="1">1 год</option>
+			<option value="2">2 год</option>
+			<option value="3">3 год</option>
+			<option value="4">4 год</option>
+			<option value="5">5 год</option>
+			<option value="6">более 5 лет</option>
+		</field>
+		
+		<field
+			name="job"
+			type="text"
+			description="COM_SURVEY_FORM_DESC_STEPONE_JOB"
+			label="COM_SURVEY_FORM_LBL_STEPONE_JOB"
+			required="true"
+			class="form-control"
+		/>
+		
+		<field
+			name="education"
+			type="radio"
+			default="0"
+			label="COM_SURVEY_FORM_LBL_STEPONE_EDUCATION"
+			description="COM_SURVEY_FORM_DESC_STEPONE_EDUCATION"
+			required="true"
+		>
+			<option value="1">евляюсь студентом сейчас</option>
+			<option value="2">бакалавр в США</option>
+			<option value="3">комьюнити колледж в США</option>
+			<option value="4">прошел курсы</option>
+			<option value="5">не учусь и не учился в США</option>
+		</field>		
+		
+		<field
+			name="english_level"
+			type="radio"
+			default="0"
+			label="COM_SURVEY_FORM_LBL_STEPONE_ENGLISH_LEVEL"
+			description="COM_SURVEY_FORM_DESC_STEPONE_ENGLISH_LEVEL"
+			required="true"
+		>
+			<option value="1">начальный</option>
+			<option value="2">средний</option>
+			<option value="3">разговорный</option>
+			<option value="4">литературный</option>
+		</field>
+		
+		<field
+			name="why"
+			type="textarea"
+			description="COM_SURVEY_FORM_DESC_STEPONE_WHY"
+			label="COM_SURVEY_FORM_LBL_STEPONE_WHY"
+			required="true"
+			class="form-control"
+		/>
+
+		<field
+			name="what"
+			type="textarea"
+			description="COM_SURVEY_FORM_DESC_STEPONE_WHAT"
+			label="COM_SURVEY_FORM_LBL_STEPONE_WHAT"
+			required="true"
+			class="form-control"
+		/>
+		
+		<field
+			name="sex"
+			type="radio"
+			default="0"
+			label="COM_SURVEY_FORM_LBL_STEPONE_SEX"
+			description="COM_SURVEY_FORM_DESC_STEPONE_SEX"
+			required="true"
+		>
+			<option value="male">мужской</option>
+			<option value="female">женский</option>
+		</field>
+		
+		<field
+			name="age"
+			type="text"
+			description="COM_SURVEY_FORM_DESC_STEPONE_AGE"
+			label="COM_SURVEY_FORM_LBL_STEPONE_AGE"
+			required="true"
+			class="form-control"
+		/>
+
+		<field
+			name="email"
+			type="email"
+			description="COM_SURVEY_FORM_DESC_STEPONE_EMAIL"
+			label="COM_SURVEY_FORM_LBL_STEPONE_EMAIL"
+			required="true"
+			class="form-control"
+		/>
+		
+	</fieldset>
+</form>

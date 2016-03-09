@@ -52,5 +52,6 @@
 				$(this).children('img').attr('src', $(this).children('img').data('default'));
 			}
 		);
+		
 	})
 })(jQuery);

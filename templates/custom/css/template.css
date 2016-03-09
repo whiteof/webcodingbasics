@@ -341,3 +341,50 @@ footer {
 .modal-free h3 {
     color: #C94A4A;
 }
+.modal-buy .modal-body h2 {
+    color: #C94A4A;
+    text-align: center;
+}
+
+/*** Module - mod_survey_stepone ***/
+#modalFree fieldset.radio {
+    margin-top: 0px;
+}
+#modalFree fieldset.radio label {
+      display: block;
+      padding-left: 30px;
+      padding-top: 2px;
+}
+#modalFree fieldset.radio input {
+      margin-left: 10px;
+}
+#modalFree .star {
+    color: #C94A4A;
+}
+#modalFree .close-modal {
+    display: none;
+}
+#modalFree .modal-response {
+    display: none;
+}
+
+.loader {
+    background: url('../images/ajax-loader.gif') no-repeat center center;
+    min-height: 30px;
+    display: none;
+}
+
+.main-content {
+    background: #efefef;
+    border-bottom: 1px solid #ddd;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.main-content .bar {
+    background: #fff;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+    padding: 20px;
+    box-shadow: 0px 0px 4px #ddd;
+}

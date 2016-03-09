@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form name="stepone">
+	<fieldset name="stepone">
+ 
+        <field
+            name="id"
+            type="sql"
+            multiple="false"
+            size="1"
+            label="COM_SURVEY_FORM_LBL_STEPONE_ID"
+            description="COM_SURVEY_FORM_DESC_STEPONE_ID"
+            query="select id, firs_name from #__survey_stepone"
+            key_field="id"
+            value_field="first_name"
+            default="0"
+            required="true"
+        >
+                <option value="">JOPTION_SELECT_ID</option>
+        </field>
+ 
+	<field
+            name="first_name"
+            type="text"
+	    description="COM_SURVEY_FORM_DESC_STEPONE_FIRST_NAME"
+	    label="COM_SURVEY_FORM_LBL_STEPONE_FIRST_NAME"
+	    required="true"
+	    size="50" />
+ 
+	</fieldset>
+</form>
