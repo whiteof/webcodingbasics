@@ -1,3 +1,60 @@
+/*
+ * Style tweaks
+ * --------------------------------------------------
+ */
+html,
+body {
+  overflow-x: hidden; /* Prevent scroll on narrow devices */
+}
+
+/*
+ * Off Canvas
+ * --------------------------------------------------
+ */
+@media screen and (max-width: 767px) {
+  .row-offcanvas {
+    position: relative;
+    -webkit-transition: all .25s ease-out;
+         -o-transition: all .25s ease-out;
+            transition: all .25s ease-out;
+  }
+
+  .row-offcanvas-right {
+    right: 0;
+  }
+
+  .row-offcanvas-left {
+    left: 0;
+  }
+
+  .row-offcanvas-right
+  .sidebar-offcanvas {
+    right: -50%; /* 6 columns */
+  }
+
+  .row-offcanvas-left
+  .sidebar-offcanvas {
+    left: -50%; /* 6 columns */
+  }
+
+  .row-offcanvas-right.active {
+    right: 50%; /* 6 columns */
+  }
+
+  .row-offcanvas-left.active {
+    left: 50%; /* 6 columns */
+  }
+
+  .sidebar-offcanvas {
+    position: absolute;
+    top: 0;
+    width: 50%; /* 6 columns */
+  }
+}
+
+
+
+
 /* Fixed navbar that is 50px tall */
 body {
   padding-top: 50px;
@@ -207,6 +264,7 @@ ul.no-list {
     position: absolute;
     z-index: 200;
     margin-top: 20px;
+    margin-left: -80px;
 }
 @media screen and (max-width: 991px) {
     .description .image-container img {
@@ -364,7 +422,8 @@ footer {
 #modalFree .close-modal {
     display: none;
 }
-#modalFree .modal-response {
+
+.modal-body .modal-response {
     display: none;
 }
 
@@ -387,4 +446,51 @@ footer {
     border: 1px solid #ddd;
     padding: 20px;
     box-shadow: 0px 0px 4px #ddd;
+}
+
+/*** Login Form ***/
+.login form, .reset form {
+    max-width: 400px;
+    margin: auto;
+}
+.login form .control-label, .reset form .control-label {
+    text-align: left;
+}
+.login .login-header {
+    max-width: 400px;
+    margin: auto;  
+}
+.login-form-links {
+    max-width: 400px;
+    margin: auto;  
+}
+.login-form-links ul {
+    list-style: none;
+    display: table;
+    margin: 10px 0px 0px 0px;
+    padding: 0px;
+}
+.login-form-links ul li:first-child {
+    border-left: 1px solid #eee;
+}
+.login-form-links ul li {
+    display: table-cell;
+    padding: 0px 20px;
+    border-right: 1px solid #eee;
+}
+.login .control-group, .reset .control-group {
+    padding: 5px 0px;
+}
+
+.course-menu li a small {
+    color: #aaa;
+    padding-left: 10px;
+}
+
+.contact-form .control-label {
+    text-align: left;
+}
+.contact-form .checkbox-left {
+    float: left;
+    padding: 5px 5px 10px 0px;
 }

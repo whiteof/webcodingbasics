@@ -40,6 +40,7 @@ JHtml::_('bootstrap.framework');
 $doc->addScript($this->baseurl . '/templates/' . $this->template . '/js/banner.js');
 $doc->addScript($this->baseurl . '/templates/' . $this->template . '/js/mod_survey_stepone.js');
 $doc->addScript($this->baseurl . '/templates/' . $this->template . '/js/mod_room_buy.js');
+$doc->addScript($this->baseurl . '/templates/' . $this->template . '/js/mod_contact.js');
 $doc->addScript($this->baseurl . '/templates/' . $this->template . '/js/template.js');
 
 // Add Stylesheets
@@ -143,15 +144,29 @@ else
 					<ul class="nav navbar-nav">
 						<li class="dropdown">
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Обучение <span class="caret"></span></a>
-							<ul class="dropdown-menu">
-								<li><a href="#" data-toggle="modal" data-target="#modalFree">Получить бесплатный видео урок</a></li>
-								<li><a href="#" data-toggle="modal" data-target="#modalBuy">Пройти весь курс</a></li>
-								<?php /*
-								<li role="separator" class="divider"></li>
-								<li class="dropdown-header">- бонусы -</li>
-								<li><a href="#">С чего начать поиск работы</a></li>
-								<li><a href="#">Как правильно составить резюме</a></li>
-								*/?>
+							<ul class="dropdown-menu course-menu">
+								<?php
+									$user = JFactory::getUser();
+								?>
+								<?php if(!in_array('2', $user->groups)): ?>
+									<li><a href="#" data-toggle="modal" data-target="#modalFree">Получить бесплатный видео урок</a></li>
+								<?php endif ?>
+								<?php if(!in_array('11', $user->groups)): ?>
+									<li><a href="#" data-toggle="modal" data-target="#modalBuy">Пройти весь курс</a></li>
+								<?php endif ?>
+								<?php if(in_array('2', $user->groups)): ?>
+									<?php if(!in_array('11', $user->groups)): ?>
+										<li role="separator" class="divider"></li>
+										<li class="dropdown-header">- курс -</li>
+									<?php endif ?>
+									<li><a href="<?php echo $this->baseurl?>/index.php/course/lesson10">Урок 1</a></li>
+									<li><a href="<?php echo $this->baseurl?>/index.php/course/lesson20">Урок 2<?php if(!in_array('10', $user->groups)) echo '<small>не доступен</small>' ?></a></li>
+									<li><a href="<?php echo $this->baseurl?>/index.php/course/lesson30">Урок 3<?php if(!in_array('11', $user->groups)) echo '<small>не доступен</small>' ?></a></li>
+									<li><a href="<?php echo $this->baseurl?>/index.php/course/lesson40">Урок 4<?php if(!in_array('11', $user->groups)) echo '<small>не доступен</small>' ?></a></li>
+									<li><a href="<?php echo $this->baseurl?>/index.php/course/lesson50">Урок 5<?php if(!in_array('11', $user->groups)) echo '<small>не доступен</small>' ?></a></li>
+									<li><a href="<?php echo $this->baseurl?>/index.php/course/lesson60">Урок 6<?php if(!in_array('11', $user->groups)) echo '<small>не доступен</small>' ?></a></li>
+									<li><a href="<?php echo $this->baseurl?>/index.php/course/lesson70">Урок 7<?php if(!in_array('11', $user->groups)) echo '<small>не доступен</small>' ?></a></li>
+								<?php endif ?>
 							</ul>
 						</li>
 						<li class="dropdown">
@@ -162,7 +177,9 @@ else
 								<li><a href="#">+1 347 575 6340</a></li>
 							</ul>
 						</li>
+						<?php /*
 						<li><a href="http://blog.wecodingbasics.com" target="_blank">Полезные статьи</a></li>
+						*/ ?>
 					</ul>
 					
 					<?php if($this->countModules('menu-top-right')): ?>
@@ -297,18 +314,51 @@ else
 				</div>
 			</div>
 		<?php else: ?>
-			<div class="main-content">
-				<div class="container">
-					<div class="bar">
-						<main id="content" role="main" class="<?php echo $span; ?>">
-							<!-- Begin Content -->
-							<jdoc:include type="message" />
-							<jdoc:include type="component" />
-							<!-- End Content -->
-						</main>
+			<?php 
+				$app = JFactory::getApplication();
+				$input = $app ->input;
+				$componentName = $input ->get('option');
+			?>
+			<?php if($this->countModules('course-sidemenu')): ?>
+				<div class="main-content">
+					<main id="content" role="main" class="<?php echo $span; ?>">
+						<div class="container">
+							<div class="row row-offcanvas row-offcanvas-left">
+								<div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar">
+									<div class="list-group">
+										<div class="bar">
+											<jdoc:include type="modules" name="course-sidemenu" style="none" />
+										</div>
+									</div>
+								</div>
+									
+								<div class="col-xs-12 col-sm-9">
+									<p class="pull-left visible-xs">
+										<button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas">Toggle nav</button>
+									</p>
+									<div class="bar">
+										<jdoc:include type="message" />
+										<jdoc:include type="component" />
+									</div>
+								</div>
+							</div>
+						</div>
+					</main>
+				</div>
+			<?php else: ?>
+				<div class="main-content">
+					<div class="container">
+						<div class="bar">
+							<main id="content" role="main" class="<?php echo $span; ?>">
+								<!-- Begin Content -->
+								<jdoc:include type="message" />
+								<jdoc:include type="component" />
+								<!-- End Content -->
+							</main>
+						</div>
 					</div>
 				</div>
-			</div>
+			<?php endif ?>		
 		<?php endif ?>
 		
 		<footer>
@@ -321,107 +371,7 @@ else
 		
 		<jdoc:include type="modules" name="home-room-buy" style="none" />
 		
+		<jdoc:include type="modules" name="contact-form" style="none" />	
 		
-		<!-- Modal - Question -->
-		<div class="modal fade modal-question" id="modalQuestion" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-			<div class="modal-dialog" role="document">
-				<div class="modal-content">
-					<div class="modal-header">
-						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-						<h3 class="modal-title" id="myModalLabel">
-							Задай вопрос Сергею!
-						</h3>
-					</div>
-					<div class="modal-body">
-						
-					</div>
-					<div class="modal-footer">
-						<button type="submit" class="btn btn-danger">Спросить</button>
-					</div>
-				</div>
-			</div>
-		</div>		
-		
-		
-		<?php /*
-		
-		
-		<!-- Body -->
-		<div class="body">
-			<div class="container<?php echo ($params->get('fluidContainer') ? '-fluid' : ''); ?>">
-				<!-- Header -->
-				<header class="header" role="banner">
-					<div class="header-inner clearfix">
-						<a class="brand pull-left" href="<?php echo $this->baseurl; ?>/">
-							<?php echo $logo; ?>
-							<?php if ($this->params->get('sitedescription')) : ?>
-								<?php echo '<div class="site-description">' . htmlspecialchars($this->params->get('sitedescription')) . '</div>'; ?>
-							<?php endif; ?>
-						</a>
-						<div class="header-search pull-right">
-							<jdoc:include type="modules" name="position-0" style="none" />
-						</div>
-					</div>
-				</header>
-				<?php if ($this->countModules('position-1')) : ?>
-					<nav class="navigation" role="navigation">
-						<div class="navbar pull-left">
-							<a class="btn btn-navbar collapsed" data-toggle="collapse" data-target=".nav-collapse">
-								<span class="icon-bar"></span>
-								<span class="icon-bar"></span>
-								<span class="icon-bar"></span>
-							</a>
-						</div>
-						<div class="nav-collapse">
-							<jdoc:include type="modules" name="position-1" style="none" />
-						</div>
-					</nav>
-				<?php endif; ?>
-				<jdoc:include type="modules" name="banner" style="xhtml" />
-				<div class="row-fluid">
-					<?php if ($this->countModules('position-8')) : ?>
-						<!-- Begin Sidebar -->
-						<div id="sidebar" class="span3">
-							<div class="sidebar-nav">
-								<jdoc:include type="modules" name="position-8" style="xhtml" />
-							</div>
-						</div>
-						<!-- End Sidebar -->
-					<?php endif; ?>
-					<main id="content" role="main" class="<?php echo $span; ?>">
-						<!-- Begin Content -->
-						<jdoc:include type="modules" name="position-3" style="xhtml" />
-						<jdoc:include type="message" />
-						<jdoc:include type="component" />
-						<jdoc:include type="modules" name="position-2" style="none" />
-						<!-- End Content -->
-					</main>
-					<?php if ($this->countModules('position-7')) : ?>
-						<div id="aside" class="span3">
-							<!-- Begin Right Sidebar -->
-							<jdoc:include type="modules" name="position-7" style="well" />
-							<!-- End Right Sidebar -->
-						</div>
-					<?php endif; ?>
-				</div>
-			</div>
-		</div>
-		<!-- Footer -->
-		<footer class="footer" role="contentinfo">
-			<div class="container<?php echo ($params->get('fluidContainer') ? '-fluid' : ''); ?>">
-				<hr />
-				<jdoc:include type="modules" name="footer" style="none" />
-				<p class="pull-right">
-					<a href="#top" id="back-top">
-						<?php echo JText::_('TPL_CUSTOM_BACKTOTOP'); ?>
-					</a>
-				</p>
-				<p>
-					&copy; <?php echo date('Y'); ?> <?php echo $sitename; ?>
-				</p>
-			</div>
-		</footer>
-		<jdoc:include type="modules" name="debug" style="none" />
-		*/?>
 	</body>
 </html>
