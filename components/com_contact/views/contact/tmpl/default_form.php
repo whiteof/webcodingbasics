@@ -17,7 +17,6 @@ if (isset($this->error)) : ?>
 		<?php echo $this->error; ?>
 	</div>
 <?php endif; ?>
-
 <div class="contact-form">
 	<form id="contact-form" action="<?php echo JRoute::_('index.php'); ?>" method="post" class="form-validate form-horizontal">
 		<fieldset>

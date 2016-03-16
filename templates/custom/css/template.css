@@ -438,6 +438,10 @@ footer {
     border-bottom: 1px solid #ddd;
     padding-top: 20px;
     padding-bottom: 20px;
+    line-height: 1.4em;
+}
+.main-content h4 {
+    line-height: 1.4em;
 }
 
 .main-content .bar {
@@ -449,11 +453,11 @@ footer {
 }
 
 /*** Login Form ***/
-.login form, .reset form {
+.login form, .reset form, .reset-confirm form, .reset-complete form {
     max-width: 400px;
     margin: auto;
 }
-.login form .control-label, .reset form .control-label {
+.login form .control-label, .reset form .control-label, .reset-confirm form .control-label, .reset-complete form .control-label {
     text-align: left;
 }
 .login .login-header {
@@ -493,4 +497,147 @@ footer {
 .contact-form .checkbox-left {
     float: left;
     padding: 5px 5px 10px 0px;
+}
+.create-password {
+    max-width: 400px;
+    margin: auto;
+}
+.create-password .control-label {
+    text-align: left;  
+}
+.create-password .control-group {
+    padding-top: 10px;
+}
+.create-password fieldset {
+    padding-bottom: 10px;
+}
+
+.alert, .tags-container {
+    border: 1px solid #ddd;
+    border-left: 4px solid #ddd;
+    border-radius: 4px;
+    padding: 10px 15px;  
+}
+.alert-error {
+    border-left-color: #d40000;
+    color: #d40000;
+}
+
+.page-header {
+    margin-top: 0px;
+}
+
+.course-video-container {
+    padding-bottom: 20px;
+    border-bottom: 1px solid #eee;
+    margin-bottom: 20px;
+}
+.course-video {
+    display: block;
+    width: 765px;
+    height: 430px;
+    margin: auto;
+}
+@media screen and (max-width: 1199px) {
+    .course-video {
+        width: 655px;
+        height: 368px;
+    }
+}
+@media screen and (max-width: 991px) {
+    .course-video {
+        width: 490px;
+        height: 275px;
+    }
+}
+@media screen and (max-width: 565px) {
+    .course-video {
+        width: 260px;
+        height: 146px;
+    }
+}
+
+#sidebar .bar {
+    padding: 20px 0px;
+    max-height: 700px;
+    overflow-y: auto;
+}
+#sidebar ul {
+    list-style: none;
+    margin: 0px;
+    padding: 0px;
+}
+#sidebar ul a {
+    display: block;
+}
+#sidebar ul a:hover {
+    text-decoration: none;
+}
+#sidebar ul a.parent-item::before {
+    content: '\25BE\00A0';
+    /*content: '\25B8\00A0';*/
+}
+#sidebar ul a.parent-item.collapsed::before {
+    content: '\25B8\00A0';
+}
+#sidebar li.parent li.parent a {
+    font-weight: bold;
+    color: #555;
+    padding: 5px 10px;
+    border-bottom: 1px solid #ddd;
+}
+#sidebar li.parent li.parent li a {
+    color: #08C;
+    font-weight: 100;
+    padding: 5px 15px;
+    border-bottom: 0px;
+    
+}
+#sidebar li.parent li.parent li a::before {
+    content: "\0BB \020";
+}
+#sidebar li.parent li.parent li.current.active {
+    background: #efefef url('../images/menu-active.png') no-repeat right center;
+}
+#sidebar li.parent li.parent li a:hover {
+    background: #efefef;
+}
+#sidebar li.parent li.parent li.current.active a:hover {
+    background: #efefef url('../images/menu-active.png') no-repeat right center;
+}
+#sidebar ul.nav.menu a {
+    display: block;
+    font-size: 14px;
+    line-height: 1.3em;
+}
+#sidebar ul.nav.menu a.top-level {
+    border-bottom: 1px solid #eee;
+    margin-bottom: 10px;
+}
+
+.download-container {
+    margin-top: 20px;
+    text-align: left;
+}
+.download-container a {
+    background: url('../images/link-icon-download.png') no-repeat left center;
+    background-size: 18px 18px;
+    font-size: 14px;
+    line-height: 14px;
+    padding: 5px 0px 5px 25px;
+}
+
+.parent-title {
+    border-radius: 4px;
+    background: #fafafa;
+    font-size: 16px;
+    padding: 10px 15px;
+    margin-bottom: 15px;
+}
+
+.buy-course-bottom {
+    text-align: center;
+    border-top: 1px solid #eee;
+    padding-top: 20px;
+    margin-top: 20px;
 }

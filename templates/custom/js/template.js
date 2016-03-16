@@ -52,6 +52,26 @@
 				$(this).children('img').attr('src', $(this).children('img').data('default'));
 			}
 		);
+		
+		// Side bar navigation
+		$('#sidebar .parent-item').click(function(event){
+			event.preventDefault();
+			var link_obj = $(this);
+			if ($(this).hasClass('collapsed')) {
+				$(this).next('ul').slideDown(300, function(){
+					link_obj.removeClass('collapsed');
+				});
+            }else {
+				$(this).next('ul').slideUp(300, function(){
+					link_obj.addClass('collapsed');
+				});
+			}
+		});
+		
+		// Scroll to the current menu item
+		if (typeof($('#sidebar li.parent li.parent li.current.active').position()) != 'undefined') {
+            $('#sidebar .bar').scrollTop($('#sidebar .bar').scrollTop() + $('#sidebar li.parent li.parent li.current.active').position().top);
+        }
 				
 	})
 })(jQuery);

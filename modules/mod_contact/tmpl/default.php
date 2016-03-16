@@ -82,7 +82,7 @@ defined('_JEXEC') or die;
 								</div>
 								<div class="clear_both"></div>
 								<div class="form-actions">
-									<button class="btn btn-primary validate" type="submit">Спросить</button>
+									<button class="btn btn-danger validate" type="submit">Спросить</button>
 									<input type="hidden" name="option" value="com_contact" />
 									<input type="hidden" name="task" value="contact.submit" />
 									<input type="hidden" name="return" value="" />

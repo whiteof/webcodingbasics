@@ -98,7 +98,7 @@ defined('_JEXEC') or die;
 						<input type="hidden" name="task" value="stepone.submit" />
 						<button type="submit" class="btn btn-danger"><?php echo JText::_('COM_SURVEY_FORM_LBL_STEPONE_SUBMIT'); ?></button>
 						<?php echo JHtml::_('form.token'); ?>
-						<button type="button" class="btn btn-default close-modal" data-dismiss="modal">Close</button>
+						<button type="button" class="btn btn-default close-modal" data-dismiss="modal">Закрыть</button>
 					</div>
 							</form>
 				</div>

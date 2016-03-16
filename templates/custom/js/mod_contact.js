@@ -1,4 +1,3 @@
-/*
 (function($)
 {
 	$(document).ready(function()
@@ -7,7 +6,6 @@
         $('#modalQuestion form').submit(function(event){
             event.preventDefault();
             var url = $(this).attr('action');
-            alert(url);
 			var form = $(this);
             $('#modalQuestion .modal-request').fadeOut(200, function(){
                 $('#modalQuestion .loader').fadeIn(200, function(){
@@ -25,4 +23,3 @@
         
 	});
 })(jQuery);
-*/

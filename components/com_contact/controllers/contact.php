@@ -91,6 +91,7 @@ class ContactControllerContact extends JControllerForm
 
 		if ($validate === false)
 		{
+
 			// Get the validation messages.
 			$errors = $model->getErrors();
 

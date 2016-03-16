@@ -134,7 +134,6 @@ class ContentViewArticle extends JViewLegacy
 		if ($item->params->get('access-view') == false && ($item->params->get('show_noauth', '0') == '0'))
 		{
 			JError::raiseWarning(403, JText::_('JERROR_ALERTNOAUTHOR'));
-
 			return;
 		}
 

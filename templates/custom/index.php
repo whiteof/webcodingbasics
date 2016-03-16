@@ -128,7 +128,6 @@ else
 	</head>
 
 	<body>
-		
 	    <!-- Fixed navbar -->
 		<nav class="navbar navbar-inverse navbar-fixed-top">
 			<div class="container">
@@ -159,13 +158,13 @@ else
 										<li role="separator" class="divider"></li>
 										<li class="dropdown-header">- курс -</li>
 									<?php endif ?>
-									<li><a href="<?php echo $this->baseurl?>/index.php/course/lesson10">Урок 1</a></li>
-									<li><a href="<?php echo $this->baseurl?>/index.php/course/lesson20">Урок 2<?php if(!in_array('10', $user->groups)) echo '<small>не доступен</small>' ?></a></li>
-									<li><a href="<?php echo $this->baseurl?>/index.php/course/lesson30">Урок 3<?php if(!in_array('11', $user->groups)) echo '<small>не доступен</small>' ?></a></li>
-									<li><a href="<?php echo $this->baseurl?>/index.php/course/lesson40">Урок 4<?php if(!in_array('11', $user->groups)) echo '<small>не доступен</small>' ?></a></li>
-									<li><a href="<?php echo $this->baseurl?>/index.php/course/lesson50">Урок 5<?php if(!in_array('11', $user->groups)) echo '<small>не доступен</small>' ?></a></li>
-									<li><a href="<?php echo $this->baseurl?>/index.php/course/lesson60">Урок 6<?php if(!in_array('11', $user->groups)) echo '<small>не доступен</small>' ?></a></li>
-									<li><a href="<?php echo $this->baseurl?>/index.php/course/lesson70">Урок 7<?php if(!in_array('11', $user->groups)) echo '<small>не доступен</small>' ?></a></li>
+									<li><a href="<?php echo $this->baseurl?>/course/lesson1/part1">Урок 1</a></li>
+									<li><a href="<?php echo $this->baseurl?>/course/lesson2/part1">Урок 2<?php if(!in_array('10', $user->groups)) echo '<small>не доступен</small>' ?></a></li>
+									<li><a href="<?php echo $this->baseurl?>/course/lesson3/part1">Урок 3<?php if(!in_array('11', $user->groups)) echo '<small>не доступен</small>' ?></a></li>
+									<li><a href="<?php echo $this->baseurl?>/course/lesson4/part1">Урок 4<?php if(!in_array('11', $user->groups)) echo '<small>не доступен</small>' ?></a></li>
+									<li><a href="<?php echo $this->baseurl?>/course/lesson5/part1">Урок 5<?php if(!in_array('11', $user->groups)) echo '<small>не доступен</small>' ?></a></li>
+									<li><a href="<?php echo $this->baseurl?>/course/lesson6/part1">Урок 6<?php if(!in_array('11', $user->groups)) echo '<small>не доступен</small>' ?></a></li>
+									<li><a href="<?php echo $this->baseurl?>/course/lesson7/part1">Урок 7<?php if(!in_array('11', $user->groups)) echo '<small>не доступен</small>' ?></a></li>
 								<?php endif ?>
 							</ul>
 						</li>
@@ -174,7 +173,7 @@ else
 							<ul class="dropdown-menu">
 								<li><a href="mailto:learn@webcodingbasics.com">learn@webcodingbasics.com</a></li>
 								<li role="separator" class="divider"></li>
-								<li><a href="#">+1 347 575 6340</a></li>
+								<li><a href="#">+1 718 844 2413</a></li>
 							</ul>
 						</li>
 						<?php /*
@@ -336,9 +335,21 @@ else
 									<p class="pull-left visible-xs">
 										<button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas">Toggle nav</button>
 									</p>
+									<div class="parent-title">
+										<?php
+											$menu = JFactory::getApplication()->getMenu();
+											$parent = $menu->getItem($menu->getActive()->parent_id);
+											echo $parent->title;
+										?>
+									</div>
 									<div class="bar">
 										<jdoc:include type="message" />
 										<jdoc:include type="component" />
+										<?php if(!in_array('11', $user->groups)): ?>
+											<p class="buy-course-bottom">
+												<a class="btn btn-danger" href="#" data-toggle="modal" data-target="#modalBuy">Пройти полный курс</a>
+											</p>
+										<?php endif ?>
 									</div>
 								</div>
 							</div>
