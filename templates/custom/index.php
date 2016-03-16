@@ -383,6 +383,35 @@ else
 		<jdoc:include type="modules" name="home-room-buy" style="none" />
 		
 		<jdoc:include type="modules" name="contact-form" style="none" />	
-		
+
+		<?php $payment = JRequest::getVar('payment'); ?>
+		<?php if($payment == 'success'): ?>
+			<!-- Modal - Buy Course -->
+			<div class="modal fade modal-buy" id="modalSuccess" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+				<div class="modal-dialog" role="document">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+							<h3 class="modal-title" id="myModalLabel">
+								Оплата получена!<br />
+								Уже скоро Ты станешь веб-программистом!
+							</h3>
+						</div>
+						<div class="modal-body">
+							<p><strong>Спасибо за оплату!</strong></p>
+							<p>Теперь проверь свой электронный ящик. Там тебя ожидает ссылка на первый урок.</p>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<script type="text/javascript">
+				jQuery(window).load(function(){
+					jQuery('#modalSuccess').modal('show');
+				});
+			</script>
+		<?php endif ?>
 	</body>
 </html>
