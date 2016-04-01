@@ -17,3 +17,16 @@ CREATE TABLE `#__survey_stepone` (
     `created_by` int(10) unsigned NOT NULL default '0',
     PRIMARY KEY  (`id`)
 )  DEFAULT CHARSET=utf8;
+
+CREATE TABLE `#__survey_steptwo` (
+    `id` integer(10) UNSIGNED NOT NULL auto_increment,
+    `user_id` integer(10) NOT NULL,
+    `family_situation` integer(10) NOT NULL,
+    `learn_for` varchar(100) NOT NULL,
+    `challenges` text NOT NULL,
+    `expectations` text NOT NULL,
+    `ip` varchar(20) NULL,
+    `created` datetime NOT NULL default '0000-00-00 00:00:00',
+    `created_by` int(10) unsigned NOT NULL default '0',
+    PRIMARY KEY  (`id`)
+)  DEFAULT CHARSET=utf8;

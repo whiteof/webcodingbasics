@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form name="steptwo">
+	<fieldset name="steptwo">
+
+		<field
+			name="id"
+			type="hidden"
+			default="0"
+			readonly="true"
+			class="readonly"
+			label="JGLOBAL_FIELD_ID_LABEL"
+			description="JGLOBAL_FIELD_ID_DESC"
+		/>
+  
+		<field
+			name="family_situation"
+			type="text"
+			description="COM_SURVEY_FORM_DESC_STEPTWO_FAMILY_SITUATION"
+			label="COM_SURVEY_FORM_LBL_STEPTWO_FIRST_FAMILY_SITUATION"
+			required="true"
+			class="form-control"
+		/>
+
+		<field
+			name="learn_for"
+			type="radio"
+			default=""
+			description="COM_SURVEY_FORM_DESC_STEPTWO_LEARN_FOR"
+			label="COM_SURVEY_FORM_LBL_STEPTWO_LEARN_FOR"
+			required="true"
+			class="form-control"
+		>
+			<option value="1">поменять/найти основную работу</option>
+			<option value="2">получить дополнительный заработок</option>
+			<option value="3">просто хобби, нет цели заработать денег</option>
+		</field>
+		
+		<field
+			name="challenges"
+			type="textarea"
+			description="COM_SURVEY_FORM_DESC_STEPTWO_CHALLENGES"
+			label="COM_SURVEY_FORM_LBL_STEPTWO_CHALLENGES"
+			required="true"
+			class="form-control"
+		/>
+		
+		<field
+			name="expectations"
+			type="textarea"
+			description="COM_SURVEY_FORM_DESC_STEPTWO_EXPECTATIONS"
+			label="COM_SURVEY_FORM_LBL_STEPTWO_EXPECTATIONS"
+			required="true"
+			class="form-control"
+		/>
+		
+	</fieldset>
+</form>
