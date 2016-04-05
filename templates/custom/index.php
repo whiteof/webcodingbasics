@@ -203,7 +203,7 @@ else
 				<div class="bar">
 					<div class="top-bar">
 						<div class="container">
-							<iframe class="img-responsive main-video" src="http://www.youtube.com/embed/xs9hU9OGxkU?fs=0&amp;iv_load_policy=3&amp;modestbranding=1&amp;rel=0&amp;showinfo=0&amp;theme=light&amp;wmode=transparent&amp;autoplay=1&amp;autohide=1" allowfullscreen="" frameborder="0"></iframe>
+							<iframe class="img-responsive main-video" src="http://www.youtube.com/embed/tImkoovQVSs?fs=0&amp;iv_load_policy=3&amp;modestbranding=1&amp;rel=0&amp;showinfo=0&amp;theme=light&amp;wmode=transparent&amp;autoplay=1&amp;autohide=1" allowfullscreen="" frameborder="0"></iframe>
 						</div>
 					</div>
 					<div class="bottom-bar">
