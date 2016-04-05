@@ -6,9 +6,11 @@ JHtml::_('behavior.keepalive');
 JHtml::_('behavior.formvalidation');
  
 ?>
-    <h2></h2>
- 
-    <form class="form-validate" action="<?php echo JRoute::_('index.php'); ?>" method="post" id="stepone" name="stepone">
+    <h3>Пожалуйста, помоги мне усовершенствовать курс</h3>
+	<h4>Ответь на эти четыре вопроса, и в качестве благодарности я открою тебе доступ ко второму уроку совершенно бесплатно!</h4>
+	<p><em>Во втором уроке мы создадим первую страницу нашего интернет магазина, ты поймешь принципы блочной верстки, которая являеться основой 99% современных сайтов.</em></p>
+	<hr />
+    <form class="form-validate" action="<?php echo JRoute::_('index.php'); ?>" method="post" id="steptwo" name="steptwo">
         <?php echo $this->form->getInput('id'); ?>
 		<div class="form-group">
 			<?php echo $this->form->getLabel('family_situation'); ?>
@@ -26,7 +28,9 @@ JHtml::_('behavior.formvalidation');
 			<?php echo $this->form->getLabel('expectations'); ?>
             <?php echo $this->form->getInput('expectations'); ?>
 		</div>
+		<hr />
 		<div class="form-group">
+			<input type="hidden" name="jform[code]" value="<?php echo $this->user->code?>" />
             <input type="hidden" name="option" value="com_survey" />
             <input type="hidden" name="task" value="steptwo.submit" />
             <button type="submit" class="btn btn-danger button"><?php echo JText::_('COM_SURVEY_STEPTWO_SUBMIT'); ?></button>

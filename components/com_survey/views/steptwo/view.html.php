@@ -15,12 +15,9 @@
 		function display($tpl = null) 
 		{
 			$app		= JFactory::getApplication();
-			$params		= $app->getParams();
-			$dispatcher = JDispatcher::getInstance();
 	 
 			// Get some data from the models
-			$state		= $this->get('State');
-			$item		= $this->get('Item');
+			$this->user	= $this->get('User');
 			$this->form	= $this->get('Form');
 	 
 			// Check for errors.

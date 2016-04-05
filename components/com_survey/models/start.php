@@ -92,7 +92,7 @@
             }else {
                 $app = JFactory::getApplication();
                 //$app->login(array('username' => $user->username, 'password' => $user->code));
-                $app->redirect(JRoute::_(JURI::root().'course/lesson10'));
+                $app->redirect(JRoute::_(JURI::root().'course/lesson1/part1'));
 				
             }
 		}

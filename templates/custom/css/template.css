@@ -641,3 +641,19 @@ footer {
     padding-top: 20px;
     margin-top: 20px;
 }
+
+/*** Component - com_survey -> stepone ***/
+#jform_learn_for {
+    margin-top: 0px;
+}
+#jform_learn_for label {
+      display: block;
+      padding-left: 30px;
+      padding-top: 2px;
+}
+#jform_learn_for input {
+      margin-left: 10px;
+}
+#jform_learn_for .star {
+    color: #C94A4A;
+}

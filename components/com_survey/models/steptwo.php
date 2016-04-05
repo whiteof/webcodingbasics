@@ -36,6 +36,45 @@
 			return $form;
 	 
 		}
+		
+		public function getUserByCode($code)
+		{
+            if(!empty($code)){
+                $db = $this->getDbo();
+                $query = $db->getQuery(true)->select('a.*')->from('#__users AS a');
+                $query->where('a.code = '.$db->quote($db->escape($code, true)));
+                $db->setQuery($query);
+                $item = $db->loadObject();
+				$user = JUser::getInstance($item->id);
+				return $user;
+            }else return false;
+			
+		}
+		
+		public function getUser()
+		{
+            $code = JRequest::getVar('code');            
+            //$user = JFactory::getUser();
+            if(!empty($code)){
+                $db = $this->getDbo();
+                $query = $db->getQuery(true)->select('a.*')->from('#__users AS a');
+                $query->where('a.code = '.$db->quote($db->escape($code, true)));
+                $db->setQuery($query);
+                $user = $db->loadObject();
+            }
+			if (empty($user))
+			{
+				JError::raiseError(404, JText::_('COM_SURVEY_USER_NOT_FOUND'));
+			}
+            if($user->funnel_step < 2) {
+                return $user;
+            }else {
+                $app = JFactory::getApplication();
+                //$app->login(array('username' => $user->username, 'password' => $user->code));
+                $app->redirect(JRoute::_(JURI::root().'course/lesson2/part1'));
+            }
+		}
+		
 	 
 		/**
 		 * Get the message
@@ -60,7 +99,8 @@
 		public function save($data)
 		{
 			$id = $data['id'];
-			if($id == 0) {
+			$user = $this->getUserByCode($data['code']);
+			if($id == 0 && ($user->id > 0)) {
 				$db = $this->getDbo();
 				$query = $db->getQuery(true);
 				$query->insert($db->quoteName('#__survey_steptwo'))
@@ -74,7 +114,7 @@
 						$db->quoteName('created')
 					))
 					->values(
-						(int)$data['user_id'].', '.
+						$user->id.', '.
 						$db->quote($data['family_situation']).', '.
 						(int)$data['learn_for'].', '.
 						$db->quote($data['challenges']).', '.
@@ -89,7 +129,27 @@
 					JError::raiseWarning(500, $e->getMessage());
 					return false;
 				}				
+
+				// add user group
+				$user->funnel_step = 2;
+				$groups = $user->groups;
+				if(!isset($groups[10])) {
+					$groups[10] = "10";
+					$user->groups = $groups;
+				}
+				// Save the user to the database.
+				if (!$user->save(true))
+				{
+					return new JException(JText::sprintf('COM_USERS_USER_SAVE_FAILED', $user->getError()), 500);
+				}else {
+					$app = JFactory::getApplication('site');
+					$app->redirect(JRoute::_(JURI::root().'course/lesson2/part1'));
+				}
+			}else {
+				return new JException(JText::sprintf('COM_USERS_USER_SAVE_FAILED', 'Error'), 500);
 			}
+			
+			
 		}
-		
+
 	}

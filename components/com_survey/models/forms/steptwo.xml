@@ -28,7 +28,6 @@
 			description="COM_SURVEY_FORM_DESC_STEPTWO_LEARN_FOR"
 			label="COM_SURVEY_FORM_LBL_STEPTWO_LEARN_FOR"
 			required="true"
-			class="form-control"
 		>
 			<option value="1">поменять/найти основную работу</option>
 			<option value="2">получить дополнительный заработок</option>

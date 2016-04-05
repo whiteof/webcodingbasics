@@ -25,13 +25,8 @@
 			$model	= $this->getModel('steptwo');
 	 
 			$post_data = $app->input->post->getArray();
-			$model->save($post_data);
-			  
-			// Create new user
-			
-			// Add first lesson to the user
-			$model->addLesson($user->id);
-			
+			$model->save($post_data['jform']);
+			  			
 			return true;
 		}
 	 
