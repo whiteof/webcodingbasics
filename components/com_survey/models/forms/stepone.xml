@@ -65,7 +65,7 @@
 			description="COM_SURVEY_FORM_DESC_STEPONE_EDUCATION"
 			required="true"
 		>
-			<option value="1">евляюсь студентом сейчас</option>
+			<option value="1">являюсь студентом сейчас</option>
 			<option value="2">бакалавр в США</option>
 			<option value="3">комьюнити колледж в США</option>
 			<option value="4">прошел курсы</option>
