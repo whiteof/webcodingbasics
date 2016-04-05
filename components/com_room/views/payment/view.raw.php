@@ -90,12 +90,12 @@
 						if($user->funnel_step > 0) {
 							$body = '<p>Доступ к видео курсу "Как стать web-программистом за 2 недели и найти работу в США" открыт:'.
 									'<p><a href="http://webcodingbasics.com/course/lesson1/part1">http://webcodingbasics.com/course/lesson1/part1</a></p>'.
-									'<p>Сергей Халадинский<br />'.
+									'<p>Сергей Холодинский<br />'.
 									'<a href="http://webcodingbasics.com">www.webcodingbasics.com</p>';								
 						}else {
 							$body = '<p>Доступ к видео курсу "Как стать web-программистом за 2 недели и найти работу в США":'.
 									'<p><a href="http://webcodingbasics.com/course-start?code='.$user->code.'">http://webcodingbasics.com/course/lesson1/part1</a></p>'.
-									'<p>Сергей Халадинский<br />'.
+									'<p>Сергей Холодинский<br />'.
 									'<a href="http://webcodingbasics.com">www.webcodingbasics.com</p>';
 						}
 						$mailer->setBody($body);				

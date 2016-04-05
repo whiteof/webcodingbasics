@@ -57,7 +57,7 @@
 						'<p>Как и обещал высылаю тебе ссылку на первый видеоурок:'.
 						'<p><a href="http://webcodingbasics.com/course-start?code='.$user->code.'">http://webcodingbasics.com/course/lesson10</a></p>'.
 						'<p><strong>Не теряй время и переходи к изучению прямо сейчас!</strong></p>'.
-						'<p>Сергей Халадинский<br />'.
+						'<p>Сергей Холодинский<br />'.
 						'<a href="http://webcodingbasics.com">www.webcodingbasics.com</p>';
 				$mailer->isHTML(true);
 				$mailer->Encoding = 'base64';

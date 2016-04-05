@@ -374,7 +374,7 @@ else
 		
 		<footer>
 			<div class="container">				
-				<p>&copy; <?php echo date('Y')?> Сергей Халадинский. Все права защищены.</p>
+				<p>&copy; <?php echo date('Y')?> Сергей Холодинский. Все права защищены.</p>
 			</div>
 		</footer>
 
