@@ -33,9 +33,9 @@ defined('_JEXEC') or die;
 					</div>
 					<div class="modal-footer">
 						<?php $user = JFactory::getUser(); ?>
-						<form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post" target="_top" id="paypal-button-full">
+						<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top" id="paypal-button-full">
 							<input type="hidden" name="cmd" value="_s-xclick">
-							<input type="hidden" name="hosted_button_id" value="XJXMV2WAY8HZU">
+							<input type="hidden" name="hosted_button_id" value="B67EWUWJC32WQ">
 							<?php if(empty($user->username)): ?>
 								<div class="control-group" style="text-align: left;">
 									<label for="custom" class="required">
@@ -47,7 +47,7 @@ defined('_JEXEC') or die;
 								<input type="hidden" name="custom" value="<?php echo $user->username ?>">
 							<?php endif ?>
 							<div class="hidden">
-								<input type="image" src="https://www.sandbox.paypal.com/en_US/i/btn/btn_buynowCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+								<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_buynowCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
 							</div>
 							<div class="row">
 								<div class="col-sm-6">
@@ -62,6 +62,16 @@ defined('_JEXEC') or die;
 
 
 
+<?php
+/*
+<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+<input type="hidden" name="cmd" value="_s-xclick">
+<input type="hidden" name="hosted_button_id" value="B67EWUWJC32WQ">
+<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_buynowCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+</form>
+ */
+?>
 
 
 <?php /*
