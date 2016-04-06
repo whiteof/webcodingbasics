@@ -26,6 +26,8 @@ class SurveyControllerStart extends JControllerForm
         $data  = $this->input->post->get('jform', array(), 'array');
         if($model->save($data)) {
             $user = $model->getUserByCode($data['code']);
+            $user->log .= date('m/d/Y H:i:s')." - Created a password;\n";
+            $user->save();
             $app = JFactory::getApplication();
             $app->login(array('username' => $user->username, 'password' => $data['password1']));
             $this->setRedirect(JRoute::_('/course/lesson1/part1', true));

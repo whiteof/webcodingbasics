@@ -132,6 +132,7 @@
 
 				// add user group
 				$user->funnel_step = 2;
+				$user->log .= date('m/d/Y H:i:s')." - Completed survey #2;\n";
 				$groups = $user->groups;
 				if(!isset($groups[10])) {
 					$groups[10] = "10";

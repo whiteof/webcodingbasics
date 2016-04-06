@@ -8143,3 +8143,10 @@ body.modal-open {
 	overflow: hidden;
 	-ms-overflow-style: none;
 }
+.icon-emailButton {
+	background: url('../images/emailButton.png') no-repeat center center;
+	float: left;
+	margin-top: 2px !important;
+	width: 16px;
+	height: 16px;
+}

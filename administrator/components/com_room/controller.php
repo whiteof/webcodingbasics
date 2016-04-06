@@ -31,17 +31,17 @@ class RoomController extends JControllerLegacy
 	{
 		require_once JPATH_COMPONENT.'/helpers/room.php';
 
-		$view   = $this->input->get('view', 'categories');
+		$view   = $this->input->get('view', 'users');
 		$layout = $this->input->get('layout', 'default');
 		$id     = $this->input->getInt('id');
-		
+
 		// Check for edit form.
-		if ($view == 'product' && $layout == 'edit' && !$this->checkEditId('com_room.edit.product', $id))
+		if ($view == 'user' && $layout == 'edit' && !$this->checkEditId('com_room.edit.user', $id))
 		{
 			// Somehow the person just went to the form - we don't allow that.
 			$this->setError(JText::sprintf('JLIB_APPLICATION_ERROR_UNHELD_ID', $id));
 			$this->setMessage($this->getError(), 'error');
-			$this->setRedirect(JRoute::_('index.php?option=com_room&view=categories', false));
+			$this->setRedirect(JRoute::_('index.php?option=com_room&view=users', false));
 
 			return false;
 		}

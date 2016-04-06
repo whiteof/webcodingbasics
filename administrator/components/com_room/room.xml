@@ -33,8 +33,8 @@
 	<administration>
 		<menu img="class:room">com_room</menu>
 		<submenu>
-			<menu link="option=com_room&amp;view=course" view="course" img="class:room"
-				alt="Room/Course">com_room_course</menu>		
+			<menu link="option=com_room&amp;view=users" view="users" img="class:room"
+				alt="Room/Users">COM_ROOM_USERS</menu>		
 		</submenu>
 		<files folder="admin">
 			<filename>controller.php</filename>

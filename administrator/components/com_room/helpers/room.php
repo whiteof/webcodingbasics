@@ -28,14 +28,9 @@ class RoomHelper
 	public static function addSubmenu($vName)
 	{
 		JHtmlSidebar::addEntry(
-			JText::_('COM_ROOM_SUBMENU_CATEGORIES'),
-			'index.php?option=com_room&view=categories',
-			$vName == 'categories'
-		);
-		JHtmlSidebar::addEntry(
-			JText::_('COM_ROOM_SUBMENU_PRODUCTS'),
-			'index.php?option=com_room&view=products',
-			$vName == 'products'
+			JText::_('COM_ROOM_USERS'),
+			'index.php?option=com_room&view=users',
+			$vName == 'users'
 		);
 	}
 

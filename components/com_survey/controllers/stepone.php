@@ -43,6 +43,7 @@
 				throw new Exception("Could not bind data. Error: " . $user->getError());
 			}else {
 				$user->code = $code;
+				$user->log .= date('m/d/Y H:i:s')." - Registered by completing survey #1;\n";
 			}
 			if (!$user->save()) {
 				throw new Exception("Could not save user. Error: " . $user->getError());
@@ -67,10 +68,7 @@
 					throw new Exception("Could not send email. Error: " . $send->__toString());
 				}
 			}
-			
-			// Add first lesson to the user
-			$model->addLesson($user->id);
-			
+						
 			return true;
 		}
 		

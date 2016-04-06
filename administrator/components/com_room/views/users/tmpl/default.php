@@ -26,7 +26,7 @@ $canOrder	= $user->authorise('core.edit.state', 'com_room.category');
 $saveOrder	= $listOrder == 'a.ordering';
 if ($saveOrder)
 {
-	$saveOrderingUrl = 'index.php?option=com_room&task=products.saveOrderAjax&tmpl=component';
+	$saveOrderingUrl = 'index.php?option=com_room&task=users.saveOrderAjax&tmpl=component';
 	JHtml::_('sortablelist.sortable', 'articleList', 'adminForm', strtolower($listDirn), $saveOrderingUrl);
 }
 $sortFields = $this->getSortFields();
@@ -49,7 +49,7 @@ $assoc		= isset($app->item_associations) ? $app->item_associations : 0;
 		Joomla.tableOrdering(order, dirn, '');
 	}
 </script>
-<form action="<?php echo JRoute::_('index.php?option=com_room&view=products'); ?>" method="post" name="adminForm" id="adminForm">
+<form action="<?php echo JRoute::_('index.php?option=com_room&view=users'); ?>" method="post" name="adminForm" id="adminForm">
 <?php if (!empty( $this->sidebar)) : ?>
 	<div id="j-sidebar-container" class="span2">
 		<?php echo $this->sidebar; ?>
@@ -60,8 +60,8 @@ $assoc		= isset($app->item_associations) ? $app->item_associations : 0;
 <?php endif;?>
 		<div id="filter-bar" class="btn-toolbar">
 			<div class="filter-search btn-group pull-left">
-				<label for="filter_search" class="element-invisible"><?php echo JText::_('COM_ROOM_FILTER_SEARCH_DESC');?></label>
-				<input type="text" name="filter_search" id="filter_search" placeholder="<?php echo JText::_('COM_ROOM_SEARCH_IN_TITLE'); ?>" value="<?php echo $this->escape($this->state->get('filter.search')); ?>" title="<?php echo JText::_('COM_ROOM_SEARCH_IN_TITLE'); ?>" />
+				<label for="filter_search" class="element-invisible"><?php echo JText::_('COM_ROOM_SEARCH_IN_USERNAME');?></label>
+				<input type="text" name="filter_search" id="filter_search" placeholder="<?php echo JText::_('COM_ROOM_SEARCH_IN_USERNAME'); ?>" value="<?php echo $this->escape($this->state->get('filter.search')); ?>" title="<?php echo JText::_('COM_ROOM_SEARCH_IN_USERNAME'); ?>" />
 			</div>
 			<div class="btn-group pull-left hidden-phone">
 				<button class="btn hasTooltip" type="submit" title="<?php echo JText::_('JSEARCH_FILTER_SUBMIT'); ?>"><i class="icon-search"></i></button>
@@ -94,30 +94,18 @@ $assoc		= isset($app->item_associations) ? $app->item_associations : 0;
 					<th width="1%" class="hidden-phone">
 						<input type="checkbox" name="checkall-toggle" value="" title="<?php echo JText::_('JGLOBAL_CHECK_ALL'); ?>" onclick="Joomla.checkAll(this)" />
 					</th>
-					<th width="5%" class="nowrap center">
-						<?php echo JHtml::_('grid.sort', 'JSTATUS', 'a.published', $listDirn, $listOrder); ?>
-					</th>
 					<th class="title">
-						<?php echo JHtml::_('grid.sort', 'JGLOBAL_TITLE', 'a.title', $listDirn, $listOrder); ?>
+						<?php echo JHtml::_('grid.sort', 'COM_ROOM_USERNAME', 'a.username', $listDirn, $listOrder); ?>
 					</th>
 					<th class="nowrap hidden-phone">
-						<?php echo JHtml::_('grid.sort', 'COM_ROOM_MAKE', 'a.make', $listDirn, $listOrder); ?>
+						<?php echo JHtml::_('grid.sort', 'COM_ROOM_FUNNEL_STEP', 'a.funnel_step', $listDirn, $listOrder); ?>
 					</th>
 					<th class="nowrap hidden-phone">
-						<?php echo JHtml::_('grid.sort', 'COM_ROOM_MODEL', 'a.model', $listDirn, $listOrder); ?>
+						<?php echo JText::_('COM_ROOM_CODE'); ?>
 					</th>
 					<th class="nowrap hidden-phone">
-						<?php echo JHtml::_('grid.sort', 'COM_ROOM_YEAR', 'a.year', $listDirn, $listOrder); ?>
+						<?php echo JText::_('COM_ROOM_LOG'); ?>
 					</th>
-					<th class="nowrap hidden-phone">
-						<?php echo JHtml::_('grid.sort', 'COM_ROOM_ARTICLE', 'a.article', $listDirn, $listOrder); ?>
-					</th>
-					<th class="nowrap hidden-phone">
-						<?php echo JHtml::_('grid.sort', 'COM_ROOM_PRICE', 'a.price', $listDirn, $listOrder); ?>
-					</th>
-					<th class="nowrap hidden-phone">
-						<?php echo JHtml::_('grid.sort', 'COM_ROOM_CATEGORY', 'b.title', $listDirn, $listOrder); ?>
-					</th>						
 				</tr>
 			</thead>
 			<tfoot>
@@ -129,51 +117,36 @@ $assoc		= isset($app->item_associations) ? $app->item_associations : 0;
 			</tfoot>
 			<tbody>
 			<?php foreach ($this->items as $i => $item) :
-				$ordering   = ($listOrder == 'a.ordering');
+				$ordering   = ($listOrder == 'a.username');
 				$canCreate  = true;
 				$canEdit    = true;
 				$canCheckin = true;
 				$canChange  = true;
 				?>
 				<tr class="row<?php echo $i % 2; ?>" sortable-group-id="<?php echo $item->catid?>">
-					<td class="center hidden-phone">
+					<td class="center">
 						<?php echo JHtml::_('grid.id', $i, $item->id); ?>
 					</td>
-					<td class="center">
-						<?php echo JHtml::_('jgrid.published', $item->published, $i, 'products.', $canChange, 'cb'); ?>
-					</td>
-					<td class="nowrap has-context">
-						<div class="pull-left">
-							<a href="<?php echo JRoute::_('index.php?option=com_room&task=product.edit&id='.(int) $item->id); ?>">
-								<?php echo $this->escape($item->title); ?>
-							</a>
-						</div>
-					</td>
-					<td class="small hidden-phone">
-						<?php echo $this->escape($item->make); ?>
+					<td>
+						<?php echo $this->escape($item->username); ?>
 					</td>					
-					<td class="small hidden-phone">
-						<?php echo $this->escape($item->model); ?>
+					<td>
+						<?php echo $this->escape($item->funnel_step); ?>
 					</td>					
-					<td class="small hidden-phone">
-						<?php echo $this->escape($item->year); ?>
+					<td>
+						<?php echo $this->escape($item->code); ?>
 					</td>					
-					<td class="small hidden-phone">
-						<?php echo $this->escape($item->article); ?>
+					<td class="small">
+						<?php
+							$userlog = $this->escape($item->log);
+							$userlog = str_replace(';', '<br />',$item->log);
+							echo $userlog;
+						?>
 					</td>					
-					<td class="small hidden-phone">
-						<?php echo number_format($item->price, 0, '.', ' '); ?>
-					</td>					
-					<td class="small hidden-phone">
-						<?php echo $this->escape($item->category_title); ?>
-					</td>
 				</tr>
 				<?php endforeach; ?>
 			</tbody>
 		</table>
-
-		<?php //Load the batch processing form. ?>
-		<?php //echo $this->loadTemplate('batch'); ?>
 
 		<input type="hidden" name="task" value="" />
 		<input type="hidden" name="boxchecked" value="0" />

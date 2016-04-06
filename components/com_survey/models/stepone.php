@@ -103,26 +103,5 @@
 				}				
 			}
 		}
-		
-		public function addLesson($user_id)
-		{
-			$id = $data['id'];
-			if($id == 0) {
-				$db = $this->getDbo();
-				$query = $db->getQuery(true);
-				$query->insert($db->quoteName('#__user_lesson'))
-					->columns(array(
-						$db->quoteName('user_id'),
-						$db->quoteName('lesson_id')
-					))
-					->values((int)$user_id.', 1');
-				$db->setQuery($query);
-				try {
-					$db->execute();
-				}catch (RuntimeException $e) {
-					JError::raiseWarning(500, $e->getMessage());
-					return false;
-				}				
-			}
-		}		
+			
 	}

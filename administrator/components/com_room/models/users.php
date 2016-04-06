@@ -16,7 +16,7 @@ defined('_JEXEC') or die;
  * @subpackage  com_room
  * @since       1.6
  */
-class RoomModelProducts extends JModelList
+class RoomModelUsers extends JModelList
 {
 	/**
 	 * Constructor.
@@ -31,20 +31,8 @@ class RoomModelProducts extends JModelList
 		{
 			$config['filter_fields'] = array(
 				'id', 'a.id',
-				'title', 'a.title',
-				'make', 'a.make',
-				'model', 'a.model',
-				'year', 'a.year',
-				'article', 'a.article',
-				'description', 'a.description',
-				'price', 'a.price',
-				'category_id', 'a.category_id',
-				'category_title', 'b.title',
-				'published', 'a.published',
-				'created', 'a.created',
-				'created_by', 'a.created_by',
-				'modified', 'a.modified',
-				'modified_by', 'a.modified_by',
+				'username', 'a.username',
+				'funnel_step', 'a.funnel_step'
 			);
 
 			$app = JFactory::getApplication();
@@ -81,11 +69,11 @@ class RoomModelProducts extends JModelList
 		$accessId = $this->getUserStateFromRequest($this->context . '.filter.access', 'filter_access', null, 'int');
 		$this->setState('filter.access', $accessId);
 
-		$state = $this->getUserStateFromRequest($this->context . '.filter.published', 'filter_published', '', 'string');
-		$this->setState('filter.published', $state);
+		//$state = $this->getUserStateFromRequest($this->context . '.filter.published', 'filter_published', '', 'string');
+		//$this->setState('filter.published', $state);
 
-		$categoryId = $this->getUserStateFromRequest($this->context . '.filter.category_id', 'filter_category_id', null);
-		$this->setState('filter.category_id', $categoryId);
+		//$categoryId = $this->getUserStateFromRequest($this->context . '.filter.category_id', 'filter_category_id', null);
+		//$this->setState('filter.category_id', $categoryId);
 
 		$language = $this->getUserStateFromRequest($this->context . '.filter.language', 'filter_language', '');
 		$this->setState('filter.language', $language);
@@ -106,7 +94,7 @@ class RoomModelProducts extends JModelList
 		$this->setState('params', $params);
 
 		// List state information.
-		parent::populateState('a.title', 'asc');
+		parent::populateState('a.username', 'asc');
 	}
 
 	/**
@@ -125,8 +113,8 @@ class RoomModelProducts extends JModelList
 		// Compile the store id.
 		$id .= ':' . $this->getState('filter.search');
 		$id .= ':' . $this->getState('filter.access');
-		$id .= ':' . $this->getState('filter.published');
-		$id .= ':' . $this->getState('filter.category_id');
+		//$id .= ':' . $this->getState('filter.published');
+		//$id .= ':' . $this->getState('filter.category_id');
 		$id .= ':' . $this->getState('filter.language');
 
 		return parent::getStoreId($id);
@@ -149,34 +137,12 @@ class RoomModelProducts extends JModelList
 		$query->select(
 			$this->getState(
 				'list.select',
-				'a.id, a.title, a.make, a.model, a.year, a.article, a.description, a.price, a.category_id, a.published, a.created'
+				'a.id, a.username, a.funnel_step, a.code, a.log'
 			)
 		);
-		$query->from($db->quoteName('#__room_products') . ' AS a');
+		$query->from($db->quoteName('#__users') . ' AS a');
 
-		// Join over the language
-		$query->select('b.title AS category_title')
-			->join('LEFT', $db->quoteName('#__room_categories') . ' AS b ON b.id = a.category_id');
-
-		// Filter by published state.
-		$published = $this->getState('filter.published');
-		if (is_numeric($published))
-		{
-			$query->where('a.published = ' . (int) $published);
-		}
-		elseif ($published === '')
-		{
-			$query->where('(a.published IN (0, 1))');
-		}
-
-		// Filter by category.
-		$categoryId = $this->getState('filter.category_id');
-		if (is_numeric($categoryId))
-		{
-			$query->where('a.category_id = ' . (int) $categoryId);
-		}
-
-		// Filter by search in title
+		// Filter by search in username
 		$search = $this->getState('filter.search');
 		if (!empty($search))
 		{
@@ -187,7 +153,7 @@ class RoomModelProducts extends JModelList
 			else
 			{
 				$search = $db->quote('%' . $db->escape($search, true) . '%');
-				$query->where('(a.title LIKE ' . $search . ' OR a.description LIKE ' . $search . ')');
+				$query->where('(a.username LIKE ' . $search . ')');
 			}
 		}
 
