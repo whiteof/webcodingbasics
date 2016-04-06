@@ -58,7 +58,7 @@ class RoomViewUsers extends JViewLegacy
 		$user	= JFactory::getUser();
 		// Get the toolbar object instance
 		$bar = JToolBar::getInstance('toolbar');
-		JToolbarHelper::title(JText::_('COM_ROOM_MANAGER_PRODUCTS'), 'users.png');
+		JToolbarHelper::title(JText::_('COM_ROOM_MANAGER_USERS'), 'users.png');
 
 		//JToolbarHelper::editList('user.edit');
 		JToolbarHelper::custom('users.emailone', 'emailButton.png', 'emailButton.png', 'COM_ROOM_EMAILONE', true);
