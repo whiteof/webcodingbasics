@@ -11,7 +11,7 @@
 			$pp_hostname = "www.paypal.com";
 			$req = 'cmd=_notify-synch';
 			$tx_token = JRequest::getVar('tx');
-			$auth_token = "ELqOVKjy9GedB_cw0Da1zebxcDxbEvpk_0EuBj435mQau7RLWeFwt-pN2r9kBK_aUWanFrp7vtsAl6Dc";
+			$auth_token = "eREZWya9x658nBWl4jQcp480LkqRnVzTwz6tvPJ_FC-otZa94ztYL3KbcKy";
 			$req .= "&tx=$tx_token&at=$auth_token";
 			$ch = curl_init();
 			curl_setopt($ch, CURLOPT_URL, "https://$pp_hostname/cgi-bin/webscr");
@@ -26,8 +26,6 @@
 			if(!$res){
 				return false;
 			}else{
-				var_dump($res);
-				die;
 				$lines = explode("\n", $res);
 				$keyarray = array();
 				if (strcmp ($lines[0], "SUCCESS") == 0) {
