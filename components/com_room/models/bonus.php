@@ -45,7 +45,7 @@
             }
 			if (empty($user)) JError::raiseError(404, JText::_('COM_ROOM_USER_NOT_FOUND'));
 			$user = JFactory::getUser($user->id);
-			if(!in_array("12", $user->groups)) JError::raiseError(404, JText::_('COM_ROOM_USER_NOT_FOUND'));
+			//if(!in_array("12", $user->groups)) JError::raiseError(404, JText::_('COM_ROOM_USER_NOT_FOUND'));
             return $user;		
 		}
 		
