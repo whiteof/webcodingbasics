@@ -8,11 +8,10 @@
         
 		function display($tpl = null) 
 		{
-			//$pp_hostname = "www.paypal.com";
-			$pp_hostname = "www.sandbox.paypal.com";
+			$pp_hostname = "www.paypal.com";
 			$req = 'cmd=_notify-synch';
 			$tx_token = JRequest::getVar('tx');
-			$auth_token = "2A6Pj6BOGt40qxP8q5aTbdkww8jV4Fod7C0mCqWru8UBvtnPEBeWNg8ZZ9O";
+			$auth_token = "ELqOVKjy9GedB_cw0Da1zebxcDxbEvpk_0EuBj435mQau7RLWeFwt-pN2r9kBK_aUWanFrp7vtsAl6Dc";
 			$req .= "&tx=$tx_token&at=$auth_token";
 			$ch = curl_init();
 			curl_setopt($ch, CURLOPT_URL, "https://$pp_hostname/cgi-bin/webscr");
@@ -27,6 +26,8 @@
 			if(!$res){
 				return false;
 			}else{
+				var_dump($res);
+				die;
 				$lines = explode("\n", $res);
 				$keyarray = array();
 				if (strcmp ($lines[0], "SUCCESS") == 0) {
