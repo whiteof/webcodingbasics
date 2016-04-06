@@ -82,18 +82,30 @@
 						$config = JFactory::getConfig();
 						$mailer->setSender(array($config->get('mailfrom'), $config->get('fromname')));
 						$mailer->addRecipient(array($user->email));
-						$mailer->setSubject('Оплата прошла успешно!');
+						$mailer->setSubject('Подтверждение оплаты');
 						$mailer->isHTML(true);
 						$mailer->Encoding = 'base64';
 						$user = JUser::getInstance($user->id);
 						if($user->funnel_step > 0) {
-							$body = '<p>Доступ к видео курсу "Как стать web-программистом за 2 недели и найти работу в США" открыт:'.
-									'<p><a href="http://webcodingbasics.com/course/lesson1/part1">http://webcodingbasics.com/course/lesson1/part1</a></p>'.
+							$body = '<h4 style="color:#d40000">Спасибо за покупку!</h4>'.
+								    '<p>Оплата за видео курс "Как стать web-программистом за 2 недели и найти работу в США" прошла успешно!</p>'.
+									'<p>Курс уже доступен в твоем личном кабинете. Ссылка на первый урок:<br>'.
+									'<a href="http://webcodingbasics.com/course/lesson1/part1" target="_blank">http://webcodingbasics.com/course/lesson1/part1</a><br>'.
+									'</p>'.
+									'<p>Если у тебя возникнут проблемы с входом в систему свяжись со мной:<br>'.
+									'<a href="mailto:learn@webcodingbasics.com" target="_blank">learn@webcodingbasics.com</a><br>'.
+									'<a href="tel:%2B1%20718%20844%202413" value="+17188442413" target="_blank">+1 718 844 2413</a></p>'.
 									'<p>Сергей Холодинский<br />'.
-									'<a href="http://webcodingbasics.com">www.webcodingbasics.com</p>';								
+									'<a href="http://webcodingbasics.com">www.webcodingbasics.com</p>';
 						}else {
-							$body = '<p>Доступ к видео курсу "Как стать web-программистом за 2 недели и найти работу в США":'.
-									'<p><a href="http://webcodingbasics.com/course-start?code='.$user->code.'">http://webcodingbasics.com/course/lesson1/part1</a></p>'.
+							$body = '<h4 style="color:#d40000">Спасибо за покупку!</h4>'.
+								    '<p>Оплата за видео курс "Как стать web-программистом за 2 недели и найти работу в США" прошла успешно!</p>'.
+									'<p>Курс уже доступен в твоем личном кабинете. Ссылка на первый урок:<br>'.
+									'<a href="http://webcodingbasics.com/course-start?code='.$user->code.'" target="_blank">http://webcodingbasics.com/course/lesson1/part1</a><br>'.
+									'(пройди по ссылке чтобы создать пароль, после чего ты будешь автомотически перенаправлен на первый урок; в дальнейшем для входа в систему используй email, который ты указал при оплате)</p>'.
+									'<p>Если у тебя возникнут проблемы с входом в систему свяжись со мной:<br>'.
+									'<a href="mailto:learn@webcodingbasics.com" target="_blank">learn@webcodingbasics.com</a><br>'.
+									'<a href="tel:%2B1%20718%20844%202413" value="+17188442413" target="_blank">+1 718 844 2413</a></p>'.
 									'<p>Сергей Холодинский<br />'.
 									'<a href="http://webcodingbasics.com">www.webcodingbasics.com</p>';
 						}
