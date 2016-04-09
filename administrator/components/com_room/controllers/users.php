@@ -138,6 +138,68 @@ class RoomControllerUsers extends JControllerAdmin
 			</p>
 			<p>Но это предложение только для активных пользователей, для тех, кто реально хочет стать программистом уже сегодня! И потому предложение ограничено, и <strong style="color: #d40000;">бонусы действуют только в течении трех дней - до 8 апреля 2016!</strong></p>
 			<p><a href="http://webcodingbasics.com/super-bonus?code='.$user->code.'">http://webcodingbasics.com/super-bonus</a></p>
+			<p>Сергей Холодинский<br />
+			<a href="http://webcodingbasics.com">www.webcodingbasics.com</a></p>
+		';
+		$mailer->setBody($body);				
+		$send = $mailer->Send();
+		if ( $send !== true ) {
+			throw new Exception("Could not send email. Error: " . $send->__toString());
+		}
+		return $send;
+	}
+	
+	public function emailvk()
+	{
+		$app = JFactory::getApplication();
+		// Get the input
+		$input = JFactory::getApplication()->input;
+		$ids = $input->post->get('cid', array(), 'array');
+		
+		foreach($ids as $id) {
+			// Try to find user
+			$user = JUser::getInstance($id);
+			if(!$user) {
+				throw new Exception("Could not find user. Error: " . $user->getError());
+			}
+			if(!$this->sendEmailVk($user)) {
+				$message = JText::sprintf('COM_ROOM_MESSAGE_EMAILVK_ERROR');
+				if($this->saveUserLog($user, $message)) $app->redirect(JRoute::_('index.php?option=com_room&view=users', false), $message, 'error');
+				else throw new Exception("Could not find user. Error: Failed to save user log.");
+			}else {
+				//$user->funnel_step = 3;
+				//$user->save();
+			}
+		}		
+		$message = JText::sprintf('COM_ROOM_MESSAGE_EMAILVK_SUCCESS');
+		if($this->saveUserLog($user, $message)) $app->redirect(JRoute::_('index.php?option=com_room&view=users', false), $message, 'message');
+		else throw new Exception("Could not find user. Error: Failed to save user log.");
+	}
+	
+	public function sendEmailVk($user)
+	{
+		// Send email
+		$mailer = JFactory::getMailer();
+		$config = JFactory::getConfig();
+		$mailer->setSender(array($config->get('mailfrom'), $config->get('fromname')));
+		$mailer->addRecipient(array($user->email));
+		$mailer->setSubject('Вступай в группу Вконтакте - Как стать программистом и найти работу в США');
+		$mailer->isHTML(true);
+		$mailer->Encoding = 'base64';
+		$user = JUser::getInstance($user->id);
+		$body = '
+			<p>Привет,</p>
+			<p>Вступай в группу Вконтакте - "Как стать программистом и найти работу в США!"</p>
+			<p>
+				В этой группе я публикую последние новости в сфере веб-программирования и ситуации на рынке труда, дублирую статьи с моего блога <a href="http://learn.webcodingbasics.com">learn.webcodingbasics.com</a>.
+				Там ты можешь задавать вопросы мне и другим программистам, оставлять свои комментарии и пожелания.
+				Иногда я даже буду публиковать в группе реальные вакансии!
+			</p>
+			<p>Добавляйся в группу!<br />
+			<a href="https://vk.com/webcodingbasics">vk.com/webcodingbasics</a>
+			</p>
+			<p>Сергей Холодинский<br />
+			<a href="http://webcodingbasics.com">www.webcodingbasics.com</a></p>			
 		';
 		$mailer->setBody($body);				
 		$send = $mailer->Send();

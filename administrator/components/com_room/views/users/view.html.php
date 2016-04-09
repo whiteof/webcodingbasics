@@ -63,6 +63,7 @@ class RoomViewUsers extends JViewLegacy
 		//JToolbarHelper::editList('user.edit');
 		JToolbarHelper::custom('users.emailone', 'emailButton.png', 'emailButton.png', 'COM_ROOM_EMAILONE', true);
 		JToolbarHelper::custom('users.emailtwo', 'emailButton.png', 'emailButton.png', 'COM_ROOM_EMAILTWO', true);
+		JToolbarHelper::custom('users.emailvk', 'emailButton.png', 'emailButton.png', 'COM_ROOM_EMAILVK', true);
 		
 		JHtmlSidebar::setAction('index.php?option=com_room&view=users');
 	}
