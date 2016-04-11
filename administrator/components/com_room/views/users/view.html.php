@@ -61,9 +61,16 @@ class RoomViewUsers extends JViewLegacy
 		JToolbarHelper::title(JText::_('COM_ROOM_MANAGER_USERS'), 'users.png');
 
 		//JToolbarHelper::editList('user.edit');
+		JToolbarHelper::custom('users.emailvk', 'emailButton.png', 'emailButton.png', 'COM_ROOM_EMAILVK', true);
+		
+		JToolbarHelper::custom('users.emailarticleone', 'emailButton.png', 'emailButton.png', 'COM_ROOM_EMAI_ARTICLE_ONE', true);
+		JToolbarHelper::custom('users.emailarticletwo', 'emailButton.png', 'emailButton.png', 'COM_ROOM_EMAI_ARTICLE_TWO', true);
+		JToolbarHelper::custom('users.emailarticlethree', 'emailButton.png', 'emailButton.png', 'COM_ROOM_EMAI_ARTICLE_THREE', true);
+		
 		JToolbarHelper::custom('users.emailone', 'emailButton.png', 'emailButton.png', 'COM_ROOM_EMAILONE', true);
 		JToolbarHelper::custom('users.emailtwo', 'emailButton.png', 'emailButton.png', 'COM_ROOM_EMAILTWO', true);
-		JToolbarHelper::custom('users.emailvk', 'emailButton.png', 'emailButton.png', 'COM_ROOM_EMAILVK', true);
+		JToolbarHelper::custom('users.emailthree', 'emailButton.png', 'emailButton.png', 'COM_ROOM_EMAILTHREE', true);
+		
 		
 		JHtmlSidebar::setAction('index.php?option=com_room&view=users');
 	}

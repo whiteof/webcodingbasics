@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form name="steptwo">
+	<fieldset name="steptwo">
+
+		<field
+			name="id"
+			type="hidden"
+			default="0"
+			readonly="true"
+			class="readonly"
+			label="JGLOBAL_FIELD_ID_LABEL"
+			description="JGLOBAL_FIELD_ID_DESC"
+		/>
+		
+		<field
+			name="why"
+			type="textarea"
+			description="COM_SURVEY_FORM_DESC_STEPTHREE_WHY"
+			label="COM_SURVEY_FORM_LBL_STEPTHREE_WHY"
+			required="true"
+			class="form-control"
+		/>
+		
+	</fieldset>
+</form>
