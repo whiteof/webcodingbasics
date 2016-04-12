@@ -161,9 +161,10 @@ ul.no-list {
 }
 
 .hr-gradient-right {
-    background: url('../images/hr_gradient_right.png') no-repeat right center;
+    background: url('../images/hr_gradient_right.png') no-repeat center center;
     height: 2px;
     max-width: 700px;
+    margin: auto;
 }
 
 .description {
@@ -186,6 +187,8 @@ ul.no-list {
     }
 }
 .description h2 {
+    max-width: 900px;
+    margin: auto;
     font-weight: 100;
     text-align: center;
     margin-top: 30px;
@@ -194,6 +197,14 @@ ul.no-list {
 }
 .description h2 strong {
     text-transform: uppercase;
+}
+.description h4.desc-comment {
+    max-width: 900px;
+    margin: auto;
+    margin-bottom: 20px;
+    font-size: 20px;
+    line-height: 1.2em;
+    text-align: center;
 }
 .description h3 {
   padding-bottom: 20px;
@@ -208,6 +219,17 @@ ul.no-list {
         font-size: 20px;
     }
     
+}
+.description .course-image {
+    max-width: 300px;
+    margin: auto;
+}
+.description .employment-image {
+    max-width: 300px;
+    margin: auto;
+}
+.employment ol li {
+    margin: 8px 0px;
 }
 
 .description .description-navigation {
@@ -296,10 +318,10 @@ ul.no-list {
     font-size: 16px;
     border-bottom: 1px solid #dfdfdf;
 }
-.agenda table {
+.agenda table, .employment-details table {
     margin: 10px 0px 20px 0px;
 }
-.agenda table td {
+.agenda table td, .employment-details table td {
     font-size: 36px;
     font-weight: bold;
     color: #ddd;
@@ -307,10 +329,10 @@ ul.no-list {
     vertical-align: middle !important;
     border-top: 0px !important;
 }
-.agenda .table-responsive {
+.agenda .table-responsive, .employment-details .table-responsive {
     border: 0px;
 }
-.agenda .agenda-step-container {
+.agenda .agenda-step-container, .employment-details .agenda-step-container {
     background: url('../images/agenda-bg.png') no-repeat center center;
     background-size: 80px 80px;
     width: 100px;
@@ -321,9 +343,12 @@ ul.no-list {
     color: #fff;
     text-align: center;
 }
-.agenda h4 {
+.agenda h4, .employment-details h4 {
     font-size: 20px;
     font-weight: 500;
+}
+.employment-details h4 {
+  margin-bottom: 15px;
 }
 .agenda hr {
     border-top: 1px dotted #bbb;
