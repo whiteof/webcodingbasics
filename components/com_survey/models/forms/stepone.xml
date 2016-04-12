@@ -41,11 +41,13 @@
 		>
 			<option value=""></option>
 			<option value="1">1 год</option>
-			<option value="2">2 год</option>
-			<option value="3">3 год</option>
-			<option value="4">4 год</option>
-			<option value="5">5 год</option>
+			<option value="2">2 года</option>
+			<option value="3">3 года</option>
+			<option value="4">4 года</option>
+			<option value="5">5 лет</option>
 			<option value="6">более 5 лет</option>
+			<option value="7">не живу в США, но хочу переехать</option>
+			<option value="8">не живу в США и ищу удаленную работу</option>
 		</field>
 		
 		<field

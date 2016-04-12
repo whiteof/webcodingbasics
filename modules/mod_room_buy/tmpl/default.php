@@ -23,7 +23,7 @@ defined('_JEXEC') or die;
 					<div class="modal-body">
 						<h2>Стоимость инвестиции всего $249.00</h2>
 						<p>&nbsp;</p>
-						<p>Стоимость курса <strong>всего $249.00</strong>, тогда как средняя зарплата Junior Developer начинаеться от <strong>$50,000 в год</strong>. Или ты сможешь отбить эти деньги сделав всего один сайт на заказ, например на <a href="https://www.freelancer.com" target="_blank">freelancer.com</a>.</p>
+						<p>Стоимость программы <strong>всего $249.00</strong>, тогда как средняя зарплата Junior Developer начинаеться от <strong>$50,000 в год</strong>. Или ты сможешь отбить эти деньги сделав всего один сайт на заказ, например на <a href="https://www.freelancer.com" target="_blank">freelancer.com</a>.</p>
 						<p>К тому же, это напорядок меньше стоимости обучения в колледже или стоимости специализированных курсов. Ты сьэкономишь уйму времени и сил.</p>
 						<p><strong>Но самое главное, что ты абсолютно ничем не рискуешь!</strong></p>
 						<p align="center"><img class="img-responsive" style="max-width: 200px;" src="<?php echo JURI::base() . '/images/' ?>money_back.png" /></p>

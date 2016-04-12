@@ -282,6 +282,9 @@ ul.no-list {
     float: left;
     margin-right: 10px;
 }
+.description .read-more {
+  font-size: 14px;
+}
 .description .image-container img {
     position: absolute;
     z-index: 200;
@@ -357,6 +360,10 @@ ul.no-list {
     font-size: 18px;
     font-weight: 500;
     border-left: 1px dotted #bbb;
+}
+
+.employment-details {
+    font-size: 16px;
 }
 
 .price-container {
