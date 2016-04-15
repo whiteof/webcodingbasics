@@ -490,7 +490,7 @@ else
 										<jdoc:include type="component" />
 										<?php if(!in_array('11', $user->groups)): ?>
 											<p class="buy-course-bottom">
-												<a class="btn btn-danger" href="#" data-toggle="modal" data-target="#modalBuy">Пройти полный курс</a>
+												<a class="btn btn-danger" href="#" data-toggle="modal" data-target="#modalBuy">Участвовать в программе</a>
 											</p>
 										<?php endif ?>
 									</div>
