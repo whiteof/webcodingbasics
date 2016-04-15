@@ -161,6 +161,8 @@ else
 				<div id="navbar" class="navbar-collapse collapse">
 					<ul class="nav navbar-nav">
 						<li class="dropdown">
+							<a href="#" role="button" data-toggle="modal" data-target="#modalFree">Участвовать в программе</a>
+							<?php /*
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Обучение <span class="caret"></span></a>
 							<ul class="dropdown-menu course-menu">
 								<?php
@@ -186,6 +188,7 @@ else
 									<li><a href="<?php echo $this->baseurl?>/course/lesson7/part1">Урок 7<?php if(!in_array('11', $user->groups)) echo '<small>не доступен</small>' ?></a></li>
 								<?php endif ?>
 							</ul>
+							*/?>
 						</li>
 						<li class="dropdown">
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Контакты <span class="caret"></span></a>
@@ -210,7 +213,7 @@ else
 		<div class="header">
 			<div class="container">
 				<a href="<?php echo $this->baseurl ?>">
-					<h1>Как стать программистом и найти работу в США</h1>
+					<h1>Трудоустройство в США - Работа программистом от $50,000 в год</h1>
 					<h2>Программа по обучению веб-программированию с нуля и трудоустройству в США!</h2>
 				</a>
 			</div>
@@ -228,6 +231,7 @@ else
 					<div class="bottom-bar">
 						<div class="container">
 							<div class="start-button-container">
+								<?php /*
 								<div class="start-button start-button-free">
 									<a href="#" data-toggle="modal" data-target="#modalFree">
 										<strong>&rarr;&nbsp;&nbsp;</strong>
@@ -235,10 +239,11 @@ else
 										<strong>&nbsp;&nbsp;&larr;</strong>
 									</a>
 								</div>
+								*/?>
 								<div class="start-button start-button-buy">
-									<a href="#" data-toggle="modal" data-target="#modalBuy">
+									<a href="#" data-toggle="modal" data-target="#modalFree">
 										<strong>&rarr;&nbsp;&nbsp;</strong>
-										Участвовать в программе!
+										Начать сейчас бесплатно!
 										<strong>&nbsp;&nbsp;&larr;</strong>
 									</a>
 								</div>
@@ -249,13 +254,40 @@ else
 			</div>
 		<?php endif ?>
 		<?php if($this->countModules('home-message')): ?>
-			<div class="description">
+			<div class="description grey-container">
 				<div class="container">
 					<h2>
 						<jdoc:include type="modules" name="home-message" style="none" />
 					</h2>
 					<h4 class="desc-comment">Данная программа создана, чтобы помочь людям стать программистами и включает в себя экспресс-видеокурс по веб-программированию и помощь в поиске работы в США</h4>
 					<div class="hr-gradient-right"></div>
+					<h3>Три этапа:</h3>
+					<div class="row steps">
+						<div class="col-sm-4">
+							<div class="step-bar">
+								<img src="<?php echo $this->baseurl . '/templates/' . $this->template ?>/images/step_1.png" />
+							</div>
+							<p style="color: #2469c0;">Пройди обучение</p>
+						</div>
+						<div class="col-sm-4">
+							<div class="step-bar">
+								<img src="<?php echo $this->baseurl . '/templates/' . $this->template ?>/images/step_2.png" />
+							</div>
+							<p style="color: #e2691e;">Сдай тест</p>
+						</div>
+						<div class="col-sm-4">
+							<div class="step-bar">
+								<img src="<?php echo $this->baseurl . '/templates/' . $this->template ?>/images/step_3.png" />
+							</div>
+							<p style="color: #28b751;">Получи работу мечты</p>
+						</div>
+					</div>
+					<hr style="border-top: 1px solid #fff;" />
+					<p align="center"><a class="btn btn-danger" data-toggle="modal" data-target="#modalFree">→&nbsp;Начать сейчас бесплатно&nbsp;←</a></p>
+				</div>
+			</div>
+			<div class="description">
+				<div class="container">
 					<div class="row">
 						<div class="col-sm-6">
 							<!--
@@ -273,8 +305,10 @@ else
 									Пройдя же весь курс, мы с тобой создадим реальный интернет магазин. Ты получишь знания и навыки, с которыми смело можно начинать поиск работы и реально менять свою жизнь.
 								</p>
 								<p><a class="read-more" href="#course">подробнее&raquo;</a></p>
+								<?php /*
 								<p>&nbsp;</p>
 								<p><a class="btn btn-danger" data-toggle="modal" data-target="#modalFree">→&nbsp;Начать сейчас бесплатно!&nbsp;←</a></p>
+								*/?>
 							</div>
 							<!--<jdoc:include type="modules" name="home-description" style="none" />-->
 						</div>
@@ -291,16 +325,17 @@ else
 									<li>Работа над ошибками после прохождения реальных интервью</li>
 								</ol>
 								<p><a class="read-more" href="#employment">подробнее&raquo;</a></p>
-								<p>&nbsp;</p>
-								<p align="right"><a class="btn btn-danger" data-toggle="modal" data-target="#modalBuy">→&nbsp;Участвовать в программе&nbsp;←</a></p>
 							</div>							
 						</div>
 					</div>
+					<p>&nbsp;</p>
+					<p align="center"><a class="btn btn-danger" data-toggle="modal" data-target="#modalFree">→&nbsp;Участвовать в программе&nbsp;←</a></p>
 				</div>
 				<div class="description-navigation">
 					<div class="bar">
 						<div class="container">
 							<div class="row">
+								<?php /*
 								<div class="col-lg-4 col-sm-6 nav-button">
 									<a href="#price">
 										<img src="<?php echo $this->baseurl . '/images/' ?>button-money.png" data-active="<?php echo $this->baseurl . '/images/' ?>button-money-active.png" height="80px"/>
@@ -308,6 +343,7 @@ else
 										<div class="clear_both"></div>
 									</a>
 								</div>
+								*/?>
 								<div class="col-lg-4 col-sm-6 nav-button">
 									<a href="#author">
 										<img src="<?php echo $this->baseurl . '/images/' ?>button-avatar.png" data-active="<?php echo $this->baseurl . '/images/' ?>button-avatar-active.png" height="80px"/>
@@ -380,13 +416,13 @@ else
 							<p>Далее идет работа над ошибками - ты должен будешь записывать вопросы, которые тебе задавали на интервью, и которые у тебя вызвали трудности. Мы посоветуем, как на них нужно было отвечать. Ты увидишь, что рекрутеры, как и сами работодатели, очень часто задают одни и те же вопросы. Т.е. каждое интервью с хорошо проделанной работой над ошибками - это огромный шаг к успеху и новой работе!</p>
 						</div>
 					</div>
-					<p><br /><a class="btn btn-danger" data-toggle="modal" data-target="#modalBuy">→&nbsp;Участвовать в программе&nbsp;←</a></p>
+					<p><br /><a class="btn btn-danger" data-toggle="modal" data-target="#modalFree">→&nbsp;Участвовать в программе&nbsp;←</a></p>
 					<p>&nbsp;</p>
 				</div>
 			</div>
 		<?php endif?>
 		
-		<?php if($this->countModules('home-price')): ?>
+		<?php /*if($this->countModules('home-price')): ?>
 			<a name="price"></a>
 			<div class="price-container">
 				<div class="container">
@@ -403,7 +439,7 @@ else
 					</div>
 				</div>
 			</div>
-		<?php endif ?>
+		<?php endif */ ?>
 		
 		<?php if($this->countModules('home-author')): ?>
 			<a name="author"></a>

@@ -123,8 +123,8 @@ ul.no-list {
 .header h2 {
     text-align: center;
     color: #555;
-    font-size: 20px;
-    margin-top: 0px;
+    font-size: 24px;
+    margin-top: 5px;
     margin-bottom: 20px;
 }
 @media screen and (max-width: 991px) {
@@ -175,6 +175,10 @@ ul.no-list {
     font-size: 16px;
     overflow: hidden;
 }
+.grey-container {
+    background: #efefef !important;
+    padding-bottom: 20px;
+}
 @media screen and (max-width: 1199px) {
     .description {
         background: #fff url('../images/desc_bg.jpg') no-repeat right bottom;
@@ -186,7 +190,7 @@ ul.no-list {
         background: #fff;
     }
 }
-.description h2 {
+.description h2, .program h2 {
     max-width: 900px;
     margin: auto;
     font-weight: 100;
@@ -198,6 +202,35 @@ ul.no-list {
 .description h2 strong {
     text-transform: uppercase;
 }
+.description h3 {
+    text-align: center;
+    color: #c94a4a;
+    font-weight: bold;
+}
+.grey-container h3 {
+    font-size: 24px !important;
+    margin-bottom: 0px;
+    padding-bottom: 5px !important;
+}
+.steps .step-bar {
+    width: 150px;
+    height: 150px;
+    margin: auto;
+    background: url('../images/steps_bg.png') no-repeat center center;
+    background-size: 150px 150px;
+    text-align: center;
+    font-size: 32px;
+    font-weight: bold;
+    line-height: 150px;
+    
+}
+.steps .step-bar img {
+    width: 80px;
+    height: 80px;
+}
+.steps p {
+    margin-top: 0px;
+}
 .description h4.desc-comment {
     max-width: 900px;
     margin: auto;
@@ -206,13 +239,18 @@ ul.no-list {
     line-height: 1.2em;
     text-align: center;
 }
+.steps div {
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+}
 .description h3 {
   padding-bottom: 20px;
   font-weight: 100;
   font-size: 32px;
 }
 @media screen and (max-width: 767px) {
-    .description h2 {
+    .description h2, .program h2 {
         font-size: 22px;
     }
     .description h3 {
@@ -364,6 +402,7 @@ ul.no-list {
 
 .employment-details {
     font-size: 16px;
+    border-bottom: 1px solid #dfdfdf;
 }
 
 .price-container {
