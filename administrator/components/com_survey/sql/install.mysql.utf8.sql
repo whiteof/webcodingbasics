@@ -10,6 +10,7 @@ CREATE TABLE `#__survey_stepone` (
     `what` text NOT NULL DEFAULT '',
     `sex` varchar(20) NOT NULL DEFAULT '',
     `age` varchar(20) NOT NULL DEFAULT '',
+    `how` varchar(255) NOT NULL DEFAULT '',
     `email` varchar(100) NOT NULL DEFAULT '',
     `user_id` integer NOT NULL,
     `ip` varchar(20) NULL,

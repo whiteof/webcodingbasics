@@ -75,6 +75,7 @@
 						$db->quoteName('what'),
 						$db->quoteName('sex'),
 						$db->quoteName('age'),
+						$db->quoteName('how'),
 						$db->quoteName('email'),
 						$db->quoteName('ip'),
 						$db->quoteName('created')
@@ -90,6 +91,7 @@
 						$db->quote($data['what']).', '.
 						$db->quote($data['sex']).', '.
 						$db->quote($data['age']).', '.
+						$db->quote($data['how']).', '.
 						$db->quote($data['email']).', '.
 						$db->quote($_SERVER['REMOTE_ADDR']).', '.
 						$db->quote(date('Y-m-d H:i:s'))

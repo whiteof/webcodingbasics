@@ -82,6 +82,10 @@ defined('_JEXEC') or die;
 									</div>
 								</div>
 								<div class="form-group">
+									<?php echo $form->getLabel('how'); ?>
+									<?php echo $form->getInput('how'); ?>
+								</div>							
+								<div class="form-group">
 									<?php echo $form->getLabel('email'); ?>
 									<?php echo $form->getInput('email'); ?>
 								</div>							

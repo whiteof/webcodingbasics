@@ -128,6 +128,15 @@
 		/>
 
 		<field
+			name="how"
+			type="text"
+			description="COM_SURVEY_FORM_DESC_STEPONE_HOW"
+			label="COM_SURVEY_FORM_LBL_STEPONE_HOW"
+			required="true"
+			class="form-control"
+		/>
+		
+		<field
 			name="email"
 			type="email"
 			description="COM_SURVEY_FORM_DESC_STEPONE_EMAIL"
