@@ -88,7 +88,17 @@ defined('_JEXEC') or die;
 								<div class="form-group">
 									<?php echo $form->getLabel('email'); ?>
 									<?php echo $form->getInput('email'); ?>
-								</div>							
+								</div>
+								<div class="form-group">
+									<div class="row">
+										<div class="col-sm-6">
+											<img src="/images/no_robot.png" width="300px" />
+										</div>
+										<div class="col-sm-6">
+											<input type="text" class="form-control" placeholder="Введите два слова слева" id="norobot_field"/>
+										</div>											
+									</div>
+								</div>
 						</div>
 						<div class="loader"></div>
 						<div class="modal-response">
