@@ -95,6 +95,7 @@ defined('_JEXEC') or die;
 											<img class="img-responsive" src="/images/no_robot.png" width="300px" />
 										</div>
 										<div class="col-sm-6">
+											<?php echo $form->getLabel('norobot'); ?>
 											<?php echo $form->getInput('norobot'); ?>
 										</div>											
 									</div>
