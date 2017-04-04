@@ -152,7 +152,6 @@
 			label="COM_SURVEY_FORM_LBL_STEPONE_NOROBOT"
 			required="true"
 			class="form-control"
-			placeholder="Введите два слова слева"
 		/>
 		
 	</fieldset>
