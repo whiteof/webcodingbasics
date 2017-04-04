@@ -95,7 +95,7 @@ defined('_JEXEC') or die;
 											<img class="img-responsive" src="/images/no_robot.png" width="300px" />
 										</div>
 										<div class="col-sm-6">
-											<input type="text" class="form-control" placeholder="Введите два слова слева" id="norobot_field"/>
+											<?php echo $form->getInput('norobot'); ?>
 										</div>											
 									</div>
 								</div>
