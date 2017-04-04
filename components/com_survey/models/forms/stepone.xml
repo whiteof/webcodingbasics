@@ -144,6 +144,15 @@
 			required="true"
 			class="form-control"
 		/>
+
+		<field
+			name="norobot"
+			type="text"
+			description="COM_SURVEY_FORM_DESC_STEPONE_NOROBOT"
+			label="COM_SURVEY_FORM_LBL_STEPONE_NOROBOT"
+			required="true"
+			class="form-control"
+		/>
 		
 	</fieldset>
 </form>

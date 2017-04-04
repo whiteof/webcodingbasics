@@ -5,7 +5,7 @@
 
         $('#modalFree form').submit(function(event){
             event.preventDefault();
-			if ($('#norobot_field').val() == '10 ticurtsf') {
+			if ($('#norobot').val() == '10 ticurtsf') {
 				var url = $(this).attr('action');
 				var form = $(this);
 				$('#modalFree .modal-request').fadeOut(200, function(){

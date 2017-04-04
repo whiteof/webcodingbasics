@@ -38,7 +38,7 @@ else
 // Add JavaScript Frameworks
 JHtml::_('bootstrap.framework');
 $doc->addScript($this->baseurl . '/templates/' . $this->template . '/js/banner.js');
-$doc->addScript($this->baseurl . '/templates/' . $this->template . '/js/mod_survey_stepone.js?v=1');
+$doc->addScript($this->baseurl . '/templates/' . $this->template . '/js/mod_survey_stepone.js?v=2');
 $doc->addScript($this->baseurl . '/templates/' . $this->template . '/js/mod_room_buy.js');
 $doc->addScript($this->baseurl . '/templates/' . $this->template . '/js/mod_contact.js');
 $doc->addScript($this->baseurl . '/templates/' . $this->template . '/js/template.js');
